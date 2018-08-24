@@ -1,0 +1,277 @@
+[33mcommit e3ce83326cddfecc7f82d321b51496b418678929[m[33m ([m[1;36mHEAD -> [m[1;32mteam-profile[m[33m)[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Thu Aug 17 12:10:54 2017 +0300
+
+    fixed list-teams
+
+[33mcommit 7b5eee21ec8945406dd9a93d3aa60b7d0b812d2c[m[33m ([m[1;31morigin/team-profile[m[33m)[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Wed Aug 16 18:09:30 2017 +0300
+
+    added operations and change style in team-profile
+
+[33mcommit 79ce1f7f42ce9215fc119fd8f42aa5064a2d7ab4[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Wed Aug 16 12:28:52 2017 +0300
+
+    Changed teamprofile style
+
+[33mcommit f2f2778fa3912c371ce1f63c2bb86826138ed0a6[m[33m ([m[1;31morigin/view-team[m[33m, [m[1;32mview-team[m[33m, [m[1;32mdevelop[m[33m)[m
+Merge: dd960f6 726c8c2
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Tue Aug 15 19:40:15 2017 +0300
+
+    merge changes
+
+[33mcommit dd960f61c745517071256cc5539a2a4018677027[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Fri Aug 11 17:05:30 2017 +0300
+
+    created teamprofile
+
+[33mcommit 20f1e7661c54400a434c09dc77c2b737e5d51ce1[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Fri Aug 11 14:59:34 2017 +0300
+
+    improved search method and modified style of Teams
+
+[33mcommit ad118e4b721543fb510e527a3a86dffdf6affd74[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Thu Aug 10 18:06:37 2017 +0300
+
+    view changes
+
+[33mcommit 9164777c0ef82e60fbaa616482e158fb26def5a1[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Thu Aug 10 17:09:44 2017 +0300
+
+    modified style of ListTeams page
+
+[33mcommit 726c8c2412aff90866bad267782a6810b6733545[m
+Merge: 7c38aa0 c257b41
+Author: Fineas Stir <fineas.stir@mhp.com>
+Date:   Thu Aug 10 13:59:44 2017 +0000
+
+    Merge branch 'reset-password' into 'develop'
+    
+    Reset password
+    
+    See merge request !22
+
+[33mcommit c257b41c419ee500ec5e9cddb5e86046e207da12[m
+Merge: 2833487 2fe245b
+Author: Fineas Stir <fineas.stir@mhp.com>
+Date:   Thu Aug 10 16:56:31 2017 +0300
+
+    update reset/change password
+
+[33mcommit 283348738d65b3804b0acc0acd3cf5824ee4b230[m
+Author: Fineas Stir <fineas.stir@mhp.com>
+Date:   Thu Aug 10 16:21:54 2017 +0300
+
+    reset password updated
+
+[33mcommit 7c38aa0efe6545a9d7939a3064b7768b5a6dfaac[m
+Merge: 455c331 2fe245b
+Author: Iosif Pop <iosif.pop@mhp.com>
+Date:   Thu Aug 10 09:42:11 2017 +0000
+
+    Merge branch 'reset-password' into 'develop'
+    
+    Reset password
+    
+    See merge request !21
+
+[33mcommit 2fe245b4a118ee9745c1513602d9732f029ade5a[m
+Merge: 4f91412 455c331
+Author: Iosif Pop <iosif.pop@mhp.com>
+Date:   Thu Aug 10 09:41:55 2017 +0000
+
+    Merge branch 'develop' into 'reset-password'
+    
+    # Conflicts:
+    #   src/app/adminpage/shared/data.service.ts
+    #   src/app/app-routing.module.ts
+    #   src/app/app.module.ts
+
+[33mcommit 4f91412b58fe56903bfcda734ee48a271b278118[m
+Author: Fineas Stir <fineas.stir@mhp.com>
+Date:   Thu Aug 10 12:38:43 2017 +0300
+
+    reset password/change password update
+
+[33mcommit 455c3311559f6000046ab0af57630910cbd67c77[m
+Merge: bbea742 39ad002
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Thu Aug 10 11:58:10 2017 +0300
+
+    added bootstrap
+
+[33mcommit bbea7427ed8316f098fafdb5beff3f348840bab8[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Thu Aug 10 11:55:34 2017 +0300
+
+    Save progress
+
+[33mcommit 6eedc03956e68f600200702f7d231a3abea89e14[m
+Author: Fineas Stir <fineas.stir@mhp.com>
+Date:   Thu Aug 10 11:18:22 2017 +0300
+
+    reset password/change password
+
+[33mcommit 39ad0027ce88fb7fbe38007d097b491a4949b768[m
+Merge: ba70bdd 48bb5fb
+Author: Iosif Pop <iosif.pop@mhp.com>
+Date:   Thu Aug 10 08:13:58 2017 +0000
+
+    Merge branch 'user-profile' into 'develop'
+    
+    User profile
+    
+    See merge request !20
+
+[33mcommit 48bb5fbe60743d95d60a9f7d9fb949163470e425[m
+Author: Cristina Vlad <cristina.vlad@mhp.com>
+Date:   Thu Aug 10 11:12:41 2017 +0300
+
+    added bootstrap
+
+[33mcommit ba70bdd1f8da54db3efc0254a2903bb3924f7847[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Wed Aug 9 17:23:21 2017 +0300
+
+    Added { after merge
+
+[33mcommit f9b3e581d44d97afe9c8a055b4dc505bf91f020c[m
+Merge: 7e4a258 a2b83f9
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Wed Aug 9 14:17:32 2017 +0000
+
+    Merge branch 'view-team' into 'develop'
+    
+    View team
+    
+    See merge request !19
+
+[33mcommit a2b83f98b87897311033df6e3d02038e39e34dac[m
+Merge: c561808 7e4a258
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Wed Aug 9 14:16:55 2017 +0000
+
+    Merge branch 'develop' into 'view-team'
+    
+    # Conflicts:
+    #   src/app/adminpage/shared/data.service.ts
+
+[33mcommit c56180829ab7a07432b0e97a315248412dbee6b4[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Wed Aug 9 17:13:12 2017 +0300
+
+    Added ViewAllUsers button to ListTeams
+
+[33mcommit 53967c60e19871c70e5ad3742bc7c360ab2816a2[m
+Author: Cristina Vlad <cristina.vlad@mhp.com>
+Date:   Wed Aug 9 17:06:55 2017 +0300
+
+    Added user profile
+
+[33mcommit 7e4a2587291f48c7eed7d16053aa9821baea6137[m
+Author: Stefan Oltean <stefan.oltean@mhp.com>
+Date:   Wed Aug 9 16:07:25 2017 +0300
+
+    fixed levels for skills/languages
+
+[33mcommit 8e4dcd4df8109b6b50b2514a81a73ac79a387f48[m
+Author: Stefan Oltean <stefan.oltean@mhp.com>
+Date:   Wed Aug 9 15:52:08 2017 +0300
+
+    skill/language levels
+
+[33mcommit d871dcae1887d1f03602d5757d734d4d52b1e77f[m
+Merge: aa640fa 895f780
+Author: Stefan Oltean <stefan.oltean@mhp.com>
+Date:   Wed Aug 9 14:20:16 2017 +0300
+
+    Merge branch 'develop' of git.mymhp.net:mymhp/team2.internship.web into develop
+
+[33mcommit aa640fa8caa3f36137033f84754eba1c6554a565[m
+Author: Stefan Oltean <stefan.oltean@mhp.com>
+Date:   Wed Aug 9 14:20:01 2017 +0300
+
+    fixed levels
+
+[33mcommit 92f713161219e1f257466d18b733a85d96035969[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Tue Aug 8 17:31:23 2017 +0300
+
+    Added Remove Button
+
+[33mcommit 6104a8161eb1127011a78cbfa3795db7d95a6fc0[m
+Merge: 8ca89ef 895f780
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Tue Aug 8 16:49:57 2017 +0300
+
+    Rezolved conflicts
+
+[33mcommit 8ca89efb1cec9829404b7f75deadc4c91b491737[m
+Author: Cyntia Albert <cyntia.albert@mhp.com>
+Date:   Tue Aug 8 16:41:38 2017 +0300
+
+    Edit View Team
+
+[33mcommit 895f780e62f283dc01a9422e80376f71ab9a9fae[m[33m ([m[1;31morigin/test[m[33m, [m[1;31morigin/template-implementation[m[33m, [m[1;31morigin/photo-feature[m[33m, [m[1;31morigin/cristinutza-fetch-test[m[33m)[m
+Merge: a42ea0c 7e71323
+Author: Iosif Pop <iosif.pop@mhp.com>
+Date:   Tue Aug 8 12:58:47 2017 +0000
+
+    Merge branch 'admin-page' into 'develop'
+    
+    Admin page
+    
+    See merge request !17
+
+[33mcommit a42ea0cf7057c7be49d6c9dd20345e1c5e7b7d05[m
+Merge: 79fd631 681e8c8
+Author: Stefan Oltean <stefan.oltean@mhp.com>
+Date:   Tue Aug 8 15:48:22 2017 +0300
+
+    Merge branch 'develop' of git.mymhp.net:mymhp/team2.internship.web into develop
+
+[33mcommit 79fd63189a37391a267e2005e51ee69f11966bb8[m
+Author: Stefan Oltean <stefan.oltean@mhp.com>
+Date:   Tue Aug 8 15:48:02 2017 +0300
+
+    fixed stuff
+
+[33mcommit 681e8c860aa3e3a3c3da7c97cf7fd509f4fac1d6[m
+Author: Matei Milotoiu <matei.milotoiu@mhp.com>
+Date:   Tue Aug 8 15:41:49 2017 +0300
+
+    last commit
+
+[33mcommit 2334bcbad764d126ec4ed4cccd84488d138f494e[m
+Merge: 1bebe52 5c6bd83
+Author: Stefan Oltean <stefan.oltean@mhp.com>
+Date:   Tue Aug 8 14:56:53 2017 +0300
+
+    Merge branch 'develop' of git.mymhp.net:mymhp/team2.internship.web into develop
+
+[33mcommit 7e7132371aae426f4a30affe20bbb7ce0e7116ab[m[33m ([m[1;31morigin/admin-page[m[33m)[m
+Merge: ecb1122 5c6bd83
+Author: Cristina Vlad <cristina.vlad@mhp.com>
+Date:   Tue Aug 8 14:41:51 2017 +0300
+
+    Merge branch 'develop' into admin-page
+
+[33mcommit 5c6bd8317505923bda49ba7c23531cce12af47f6[m
+Author: Matei Milotoiu <matei.milotoiu@mhp.com>
+Date:   Tue Aug 8 14:36:02 2017 +0300
+
+    fixed update tables
+
+[33mcommit ecb1122efc5f79a0f95429c8b05e7a528cb2cb09[m
+Merge: 90f526e c55d14d
+Author: Cristina Vlad <cristina.vlad@mhp.com>
+Date:   Tue Aug 8 14:32:49 2017 +0300
+
+    Merge branch 'develop' into admin-page

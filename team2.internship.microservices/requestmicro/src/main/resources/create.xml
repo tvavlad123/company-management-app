@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+<changeSet author="itodericiu" id="20170810-001">
+		<sql>
+    	    <![CDATA[
+	
+	------------------------------------------------------VACATION REQUEST TABLE-----------------------------------------
+	
+			CREATE TABLE "vacation_requestms"
+			(
+				"vacation_request_id" BIGINT NOT NULL,
+				"user_id" BIGINT NOT NULL,
+				"start_date" DATE NOT NULL,
+				"end_date" DATE NOT NULL,
+				"comments" VARCHAR(500),
+				"picture" text,
+				"status_id" BIGINT NOT NULL
+			)
+			;
+			
+				ALTER TABLE "vacation_requestms" 
+			 ADD CONSTRAINT "vacation_requestms_id"
+				PRIMARY KEY ("vacation_request_id") 
+			;
+			
+			 CREATE UNIQUE INDEX "xvacation_requestms0"                                           
+			    ON "vacation_requestms" ("vacation_request_id")                                                                                  
+			 TABLESPACE pg_default                                                          
+			  ; 
+			  
+			  CREATE SEQUENCE vacation_requestms_seq 
+				INCREMENT BY 1     
+				START WITH 1    
+				MINVALUE 1      
+				MAXVALUE 9999999999999999 
+				CACHE 1
+				;
+			]]>
+		</sql>
+</changeSet>
+	
+<changeSet author="itodericiu" id="20170810-002">
+		<sql>
+    	    <![CDATA[
+	
+	-----------------------------------------------------HOME OFFICE REQUEST TABLE-----------------------------------------
+	
+			CREATE TABLE "homeoffice_requestms"
+			(
+				"homeoffice_request_id" BIGINT NOT NULL,
+				"user_id" BIGINT NOT NULL,
+				"start_date" DATE NOT NULL,
+				"end_date" DATE NOT NULL,
+				"half_day_id" BIGINT,
+				"status_id" BIGINT NOT NULL
+			)
+			;
+			
+				ALTER TABLE "homeoffice_requestms" 
+			 ADD CONSTRAINT "homeoffice_requestms_id"
+				PRIMARY KEY ("homeoffice_request_id") 
+			;
+			
+			 CREATE UNIQUE INDEX "xhomeoffice_requestms0"                                           
+			    ON "homeoffice_requestms" ("homeoffice_request_id")                                                                                  
+			 TABLESPACE pg_default                                                          
+			  ; 
+			  
+			  CREATE SEQUENCE homeoffice_requestms_seq 
+				INCREMENT BY 1     
+				START WITH 1    
+				MINVALUE 1      
+				MAXVALUE 9999999999999999 
+				CACHE 1
+				;
+			]]>
+		</sql>
+</changeSet>
+
+<changeSet author="itodericiu" id="20170810-003">
+		<sql>
+    	    <![CDATA[
+	
+	-----------------------------------------------------STATUS TABLE-----------------------------------------
+	
+			CREATE TABLE "statusms"
+			(
+				"status_id" BIGINT NOT NULL,
+				"name" VARCHAR(100)
+			)
+			;
+			
+				ALTER TABLE "statusms" 
+			 ADD CONSTRAINT "status_id"
+				PRIMARY KEY ("status_id") 
+			;
+			
+			 CREATE UNIQUE INDEX "xstatusms0"                                           
+			    ON "statusms" ("status_id")                                                                                  
+			 TABLESPACE pg_default                                                          
+			  ; 
+			  
+			 ALTER TABLE "vacation_requestms"
+			 ADD CONSTRAINT "fk_statusms_id"
+				FOREIGN KEY ("status_id") REFERENCES "statusms" ("status_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xvacation_requestms1"
+			    ON "vacation_requestms" ("status_id")
+			 TABLESPACE pg_default
+			  ;
+			  
+			 ALTER TABLE "homeoffice_requestms"
+			 ADD CONSTRAINT "fk_statusms_id"
+				FOREIGN KEY ("status_id") REFERENCES "statusms" ("status_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xhomeoffice_requestms1"
+			    ON "homeoffice_requestms" ("status_id")
+			 TABLESPACE pg_default
+			  ;
+			  
+			  CREATE SEQUENCE statusms_seq 
+				INCREMENT BY 1     
+				START WITH 1    
+				MINVALUE 1      
+				MAXVALUE 9999999999999999 
+				CACHE 1
+				;
+			]]>
+		</sql>
+</changeSet>
+
+<changeSet author="itodericiu" id="20170822-004">
+		<sql>
+    	    <![CDATA[
+	
+	-----------------------------------------------------HALF_DAY TABLE-----------------------------------------
+	
+			CREATE TABLE "half_dayms"
+			(
+				"half_day_id" BIGINT NOT NULL,
+				"type" VARCHAR(100)
+			)
+			;
+			
+				ALTER TABLE "half_dayms" 
+			 ADD CONSTRAINT "half_day_id"
+				PRIMARY KEY ("half_day_id") 
+			;
+			
+			 CREATE UNIQUE INDEX "xhalf_dayms0"                                           
+			    ON "half_dayms" ("half_day_id")                                                                                  
+			 TABLESPACE pg_default                                                          
+			  ; 
+			  
+			 ALTER TABLE "homeoffice_requestms"
+			 ADD CONSTRAINT "fk_half_dayms_id"
+				FOREIGN KEY ("half_day_id") REFERENCES "half_dayms" ("half_day_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xhomeoffice_requestms2"
+			    ON "homeoffice_requestms" ("half_day_id")
+			 TABLESPACE pg_default
+			  ;
+			  
+			 ALTER TABLE "half_dayms"
+			 ADD CONSTRAINT "fk_half_dayms_id"
+				FOREIGN KEY ("half_day_id") REFERENCES "half_dayms" ("half_day_id")
+			;
+
+			  
+			  CREATE SEQUENCE half_dayms_seq 
+				INCREMENT BY 1     
+				START WITH 1    
+				MINVALUE 1      
+				MAXVALUE 9999999999999999 
+				CACHE 1
+				;
+			]]>
+		</sql>
+</changeSet>
+	
+</databaseChangeLog>

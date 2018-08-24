@@ -1,0 +1,93 @@
+<div  class="backnice">
+  <div class="horizontal-div-auxinfo backnice">
+      <br>
+      <div class="group-auxinfo">      
+          <input class="input-auxinfo" type="text" [(ngModel)]="addDept.name" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+          <label>Insert Department</label>
+        </div>
+        
+        <input class="btn btn-outline-primary btnaux" type="button" value="Add Department" (click)="addDepartment()">
+        <br>
+        <br>
+    <table class="table table-bordred table-bordred-auxinfo">
+      <th><p>Departments</p></th>  
+      <tbody> 
+          <tr *ngFor="let department of departments" [class.selected]="department == dept"
+          (click)="onSelectDept(department)">
+            <td>{{department.name}}</td>
+      </tbody>
+    </table>
+    <br>
+    <div *ngIf="dept">
+      <input class="btn btn-outline-primary btnaux" type="button" value="Delete Department" (click)="deleteDepartment()">
+      <!--<input type="button" value="update"> -->
+    </div>
+    
+  </div>
+ 
+  <div class="horizontal-div-lang backnice">
+      <br>
+
+      <div class="group-auxinfo">      
+          <input class="input-auxinfo" type="text" [(ngModel)]="addLang.name" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+          <label>Insert Language</label>
+        </div>
+
+      <input class="btn btn-outline-primary btnaux" type="button" value="Add Language" (click)="addLanguage()">
+      <br>
+      <br>   
+    <!-- <div ng-controller="langcontroller" ng-app="main">
+      <select ng-model="addLang.name">
+        <option value=""> Select Language </option>
+        <option ng-repeat="lang of languages" value="language">
+          {{lang.name}}
+        </option>
+      </select> -->
+    <table class="table table-bordred table-bordred-auxinfo">
+      <th><p>Languages</p></th>  
+      <tbody> 
+          <tr *ngFor="let lang of languages" [class.selected]="lang == language"
+          (click)="onSelectLanguage(lang)">
+            <td>{{lang.name}}</td>
+      </tbody>
+    </table>
+    
+    <br>
+    <div *ngIf="language">
+      <input class="btn btn-outline-primary btnaux" type="button" value="Delete Language" (click)="deleteLanguage()">
+     <!-- <input type="button" value="update"> -->
+    </div>
+  </div>
+</div>
+
+  <div class="horizontal-div-auxinfo backnice">
+      <br>
+      <div class="group-auxinfo">      
+          <input class="input-auxinfo" type="text" [(ngModel)]="addSkill.name" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+          <label>Insert Skill</label>
+        </div>
+      <input class="btn btn-outline-primary btnaux" type="button" value="Add Skill" (click)="addSkillMethod()">
+      <br>
+      <br>
+    <table class="table table-bordred table-bordred-auxinfo">
+      <th><p>Skills</p></th>  
+      <tbody> 
+          <tr *ngFor="let skil of skills"  [class.selected]="skil == skill"
+          (click)="onSelectSkill(skil)">
+            <td>{{skil.name}}</td>
+      </tbody>
+    </table>
+    <br>
+    <div *ngIf="skill">
+      <input class="btn btn-outline-primary btnaux" type="button" value="Delete Skill" (click)="deleteSkill()">
+      <!--<input type="button" value="update"> -->
+    </div>
+   
+  </div>
+  

@@ -1,0 +1,76 @@
+
+/*.btn {
+    padding: 6px 100px;
+    border: 1 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform:capitalize;
+	background: #29363d ;
+	    color:#ffffff;
+}
+.in {
+    padding: 6px 100px;
+    border: 1 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+	color:#FFFFFF;
+	background: #29363d ;
+}
+
+.btn:hover {
+    padding: 6px 100px;
+    border: 1 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+	background: gray ;
+    color: #FFFFFF;
+}
+
+.btn:disabled {
+	background: #555555 ;
+    color: #ffffff;
+}
+
+.s {
+    padding: 6px 100px;
+    border: 1px solid black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+	background: #29363d ;
+    color: #ffffff;
+}
+
+.b  {
+	margin-top:80px;
+	width: 100px;
+	height: 50px;
+  	border: 1px solid black;
+	background: #29363d;
+	text-align: center;
+	color: #FFFFFF;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.simpleText {
+    padding: 13px 24px;
+	border: 1px solid black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #FFFFFF ;
+    color: #29363d;
+	}
+
+	body{
+		background: #FFFFFF;
+        font-size: 26px;
+	}
+
+.form-control {
+    font-size: 26px;
+    }*/

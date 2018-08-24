@@ -1,0 +1,70 @@
+<div class="table col-md-12">
+  <div>
+
+    <ul class="headertable col-md-12">
+      <div class="row rowheader">
+        <li class="col-md-2">First Name</li>
+        <li class="col-md-2">Last Name</li>
+        <li class="col-md-2">Authority</li>
+        <li class="col-md-2">Position</li>
+        <li class="col-md-2" style="margin-left:1.5%">Team</li>
+        <li class="col-md-2">Department</li>
+      </div>
+    </ul>
+  </div>
+  <div class="table-line col-md-12" *ngFor="let user of users">
+    <div class="table-line-part col-md-11" id="{{user.id}}" [update-tr]="user" [authorities]="authorities" [positions]="positions"
+      (closeLineUser)="closeLine($event)" [teams]="teams" [departments]="departments" [skills]="skills" [languages]="languages"
+      [skillLevels]="skillLevels" [languageLevels]="languageLevels" [class.selected]="user==selectedUser" (click)="onSelect(user)">
+    </div>
+    <div class="table-line-part col-md-1">
+      <div data-toggle="tooltip" title="Reset Password">
+        <button data-title="Reset" data-toggle="modal" data-target="#resetPasswordDialog" (click)="updateUserToReset(user)"><span class="glyphicon glyphicon-retweet"></span></button>
+      </div>
+      <div data-toggle="tooltip" title="Delete User">
+        <button data-title="Delete" data-toggle="modal" data-target="#deleteUserDialog" (click)="updateUserToDelete(user)"><span class="glyphicon glyphicon-trash"></span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<!--AICI SUNT PROMPTURILE-->
+<!--PROMPT FOR RESET-->
+<div class="modal fade" id="resetPasswordDialog" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="cancelReset()" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Reset Password</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to reset the password for this user?</div>
+      </div>
+      <div class="modal-footer ">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="resetPassword()"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cancelReset()"><span class="glyphicon glyphicon-remove"></span> No</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--PROMPT FOR DELETE-->
+<div class="modal fade" id="deleteUserDialog" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="cancelDelete()" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Delete User</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span>Are you sure you want to delete this user?<br> This action
+          cannot be reverted.</div>
+      </div>
+      <div class="modal-footer ">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteUser()"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cancelDelete()"><span class="glyphicon glyphicon-remove"></span> No</button>
+      </div>
+    </div>
+  </div>
+</div>

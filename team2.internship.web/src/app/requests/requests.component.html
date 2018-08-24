@@ -1,0 +1,154 @@
+<body>
+  <div>
+    <input class="btn btn-outline-success in" type="button" value="Home Office" (click)="toggleHO()" />
+    <input class="btn btn-outline-success in" type="button" value="Vacation" (click)="toggleV()" />
+    <br>
+    <br>
+    <div *ngIf="showButtonsForHO">
+      <div *ngIf="showHORequestsAcceptedForUserPerYear">
+        <label>Total days taken: </label>
+        <label class="">{{nrHO}}</label>
+      </div>
+      <input class="btn btn-outline-success in" type="button" value="Accepted Requests" (click)="viewAcceptedHORequests()" />
+      <input class="btn btn-outline-success in" type="button" value="Pending Requests" (click)="viewUnresolvedHORequests()" />
+      <input class="btn btn-outline-success in" type="button" value="Declined Requests" (click)="viewDeclinedHORequests()" />
+      <br>
+      <br>
+    </div>
+
+    <div *ngIf="showButtonsForV">
+      <div *ngIf="showVRequestsAcceptedForUserPerYear">
+        <label>Total days taken: </label>
+        <label class="">{{nrV}}</label>
+      </div>
+      <input class="btn btn-outline-success in" type="button" value="Accepted Requests" (click)="viewAcceptedVRequests()" />
+      <input class="btn btn-outline-success in" type="button" value="Pending Requests" (click)="viewUnresolvedVRequests()" />
+      <input class="btn btn-outline-success in" type="button" value="Declined Requests" (click)="viewDeclinedVRequests()" />
+    </div>
+
+    <br>
+    <div *ngIf="showAcceptedHORequestTable" class="teamgradienttable table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-2">Start date</th>
+            <th class="col-xs-2">End date</th>
+            <th class="col-xs-2">Half day</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let homeOfficeRequest of allHORequests">
+            <td class="table-text">{{homeOfficeRequest.start_date}}</td>
+            <td class="table-text">{{homeOfficeRequest.end_date}}</td>
+            <td class="table-text">{{homeOfficeRequest.half_day.type}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="showPendingHORequestTable" class="teamgradienttable table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-2">Start date</th>
+            <th class="col-xs-2">End date</th>
+            <th class="col-xs-2">Half day</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let homeOfficeRequest of allHORequests">
+            <td class="table-text">{{homeOfficeRequest.start_date}}</td>
+            <td class="table-text">{{homeOfficeRequest.end_date}}</td>
+            <td class="table-text">{{homeOfficeRequest.half_day.type}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="showDeclinedHORequestTable" class="teamgradienttable table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-2">Start date</th>
+            <th class="col-xs-2">End date</th>
+            <th class="col-xs-2">Half day</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let homeOfficeRequest of allHORequests">
+            <td class="table-text">{{homeOfficeRequest.start_date}}</td>
+            <td class="table-text">{{homeOfficeRequest.end_date}}</td>
+            <td class="table-text">{{homeOfficeRequest.half_day.type}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div *ngIf="showAcceptedVRequestTable" class="teamgradienttable table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-2">Start date</th>
+            <th class="col-xs-2">End date</th>
+            <th class="col-xs-2">Comments</th>
+            <th class="col-xs-2">Picture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vacationRequest of allVRequests">
+            <td class="table-text">{{vacationRequest.start_date}}</td>
+            <td class="table-text">{{vacationRequest.end_date}}</td>
+            <td class="table-text">{{vacationRequest.comments}}</td>
+            <td>
+              <img class="circular-square" src={{vacationRequest.picture}}>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="showPendingVRequestTable" class="teamgradienttable table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-2">Start date</th>
+            <th class="col-xs-2">End date</th>
+            <th class="col-xs-2">Comments</th>
+            <th class="col-xs-2">Picture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vacationRequest of allVRequests">
+            <td class="table-text">{{vacationRequest.start_date}}</td>
+            <td class="table-text">{{vacationRequest.end_date}}</td>
+            <td class="table-text">{{vacationRequest.comments}}</td>
+            <td><img class="circular-square" src={{vacationRequest.picture}}></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="showDeclinedVRequestTable" class="teamgradienttable table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-2">Start date</th>
+            <th class="col-xs-2">End date</th>
+            <th class="col-xs-2">Comments</th>
+            <th class="col-xs-2">Picture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vacationRequest of allVRequests">
+            <td class="table-text">{{vacationRequest.start_date}}</td>
+            <td class="table-text">{{vacationRequest.end_date}}</td>
+            <td class="table-text">{{vacationRequest.comments}}</td>
+            <td><img class="circular-square" src={{vacationRequest.picture}}></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</body>

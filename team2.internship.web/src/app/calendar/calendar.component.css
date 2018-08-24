@@ -1,0 +1,227 @@
+.cal{
+    /* background-color: #eaebee;
+    color: #009; */
+    /* height: 200px;
+    background: -webkit-linear-gradient(#eaebee, white, #eaebee); 
+    background: -o-linear-gradient(#eaebee, white, #eaebee); 
+    background: -moz-linear-gradient(#eaebee, white, #eaebee); 
+    background: linear-gradient(#eaebee, white, #eaebee); */
+} 
+.cocojambo {
+    position:relative;
+    /* float: right;
+    margin-bottom: -7px;
+    margin-right: -7px; */
+    font-size:small;
+    font-weight: initial;
+    background-color:white;
+}
+
+table {
+    color: #909090;
+}
+
+.ale {
+    border:none;
+    color:#909090;
+}
+
+.aleale {
+    padding: 0;
+    height: 35.2px;
+}
+
+
+.coloa{
+    height: 100%;
+    background-color: #eaebee;
+    /* border: 1px solid white; */
+}
+
+.dd th{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+.dow th{
+    /* padding: 8px; */
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+.hh {
+    height: 36.8px;
+    padding: 0;
+}
+
+.hh div.colob {
+    height: 100%;
+    width: 100%;
+    background-color: #eaebee;
+}
+
+.vacationAccepted{
+    height: 100%;
+background-color: 	#cfffba ;
+}
+
+.uninitialized{
+    height:100%;
+    cursor: pointer;
+}    
+
+.uninitialized.selected {
+    background-color: #000000;
+}
+
+.vra{
+    background-color:	#cfffba ;
+    width: 30px;
+    height: 30px;
+}
+
+.vacationPending{
+    height: 100%;
+    background-color:#adccff   ;
+}
+
+.vrp{
+    /* border: solid 10px #1F7583; */
+background-color: #adccff   ;
+    width: 30px;
+    height: 30px;
+}
+
+.homeOfficeWDAccepted{
+    height: 100%;
+    background-color: 	#fffc7f ;
+}
+
+.hora{
+    /* border: solid 10px #84EB82; */
+    background-color: 	#fffc7f  ;
+    width: 30px;
+    height: 30px;
+}
+
+.homeOfficePendingWH{
+    height: 100%;
+background-color: #ffbb7f   ;
+}
+
+.horp{
+    /* border: solid 10px #71B4B7; */
+    background-color: #ffbb7f   ;
+    width: 30px;
+    height: 30px;
+}
+
+.legend{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.leg{
+    text-align: center;
+}
+
+.homeOfficeFHAcceptedWrapper { 
+    height:100%;
+
+}
+
+.hoFHRight {
+    height:100%;
+    width: 50%; 
+    float:right;
+     /* height: 50%; 
+     float: left; } */
+}
+.hoFHLeft {
+    height:100%;
+    width: 50%; 
+    float: left;
+    background-color:	#fffc7f ;
+      /* height: 50%; 
+      float: left; } */
+}
+
+.homeOfficeFHPendingWrapper { 
+    height:100%;
+
+}
+
+.hoFHRightP {
+    height:100%;
+    width: 50%; 
+    float:right;
+     /* height: 50%; 
+     float: left; } */
+}
+.hoFHLeftP {
+    height:100%;
+    width: 50%; 
+    float: left;
+    background-color:	#ffbb7f   ;
+      /* height: 50%; 
+      float: left; } */
+}
+
+.homeOfficeSHPendingWrapper { 
+    height:100%;
+
+}
+
+.hoSHRightP {
+    height:100%;
+    width: 50%; 
+    float:right;
+    background-color:	#ffbb7f   ;
+     /* height: 50%; 
+     float: left; } */
+}
+.hoSHLeftP {
+    height:100%;
+    width: 50%; 
+    float: left;
+      /* height: 50%; 
+      float: left; } */
+}
+
+.homeOfficeSHAcceptedWrapper { 
+    height:100%;
+
+}
+
+.hoSHRight {
+    height:100%;
+    width: 50%; 
+    float:right;
+    background-color: 	#fffc7f ;
+     /* height: 50%; 
+     float: left; } */
+}
+.hoSHLeft {
+    height:100%;
+    width: 50%; 
+    float: left;
+      /* height: 50%; 
+      float: left; } */
+}
+
+
+th.border {
+    border-top: none;
+}
+
+.border-right {
+    border-right: 1px solid red;
+}
+
+

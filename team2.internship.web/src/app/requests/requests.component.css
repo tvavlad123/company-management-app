@@ -1,0 +1,151 @@
+.teamgradienttable {
+	font-family: verdana,arial,sans-serif;
+	font-size:16px;
+	color:black;
+	border-width: 1px;
+	border-color: #FFFFFF;
+	border-collapse: collapse;
+}
+
+.teamgradienttable th {
+	padding: 0px;
+	background: #29363d;
+	border: 1px solid #FFFFFF;
+	color:white
+}
+
+.teamgradienttable tr {
+	padding: 0px;
+	background: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	
+}
+
+.teamgradienttable tr.selected {
+	padding: 0px;
+	background: #29363d;
+	border: 1px solid #123456;
+    color: #FFFFFF;  
+	width: 20px;
+}
+
+.teamgradienttable tr:hover {
+	cursor: pointer;
+}
+
+.circular-square {
+    border-radius: 5%;
+    max-height: 150px;
+	max-width: 150px;
+	position: relative;
+	margin-right: 10%;
+	border: 1px solid #ffffff;
+}
+
+.teamgradienttable th p {
+	/*margin:0px;
+	padding:8px;
+	border-top: 1px solid #eefafc;
+	border-bottom:0px;
+	border-left: 1px solid #eefafc;
+	border-right:0px;*/
+}
+
+.teamgradienttable td p{
+	margin:0px;
+	padding:8px;
+	border-top: 1px solid #fcfdec;
+	border-bottom:0px;
+	border-left: 1px solid #fcfdec;;
+	border-right:0px;
+}
+
+.teamgradientable td {
+	border: 1px solid #FFFFFF;
+	width: 50%;
+}
+
+/*
+button.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #29363d ;
+	    color:#FFFFFF;
+}
+input.in {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	color:#FFFFFF;
+	background: #29363d ;
+}
+
+input.in:hover {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #123456 ;
+    color: #FFFFFF;
+}
+input.in:disabled {
+	background: #123456 ;
+    color: #333333;
+}
+
+select.s {
+    padding: 14px 24px;
+    border: 1px solid black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #29363d ;
+    color: #ebecda;
+}
+
+button.b  {
+	margin-top:80px;
+	width: 100px;
+	height: 50px;
+  	border: 1px solid black;
+	background: #29363d;
+	text-align: center;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+input.simpleText {
+    padding: 13px 24px;
+	border: 1px solid black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #29363d;
+    color: #ebecda;
+	}
+
+	body{
+		background: #FFFFFF;
+	}
+
+	.circular-square {
+    border-radius: 5%;
+    max-height: 150px;
+	max-width: 150px;
+	position: relative;
+	margin-right: 10%;
+	border: 1px solid #ffffff;
+}
+
+ .table-text{
+	font-size: 20px;
+	margin-top:1%;
+ }*/

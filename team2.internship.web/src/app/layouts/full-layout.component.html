@@ -1,0 +1,51 @@
+<header class="app-header navbar">
+    <a class="nav-link navbar-toggler" href="#" appSidebarToggler>&#9776;</a>
+  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>&#9776;</button>
+  <a class="navbar-brand" href="#"></a>
+  <ul class="nav navbar-nav mr-auto d-md-down-none">
+    <li class="nav-item">
+    </li>
+  </ul>
+</header>
+
+<div class="app-body">
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+         <li class="divider"></li>
+        <li class="nav-title">
+          Management
+        </li>
+        
+         <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['createuser']"><i class="icon-puzzle"></i> Create Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['listuserspage']"><i class="icon-puzzle"></i> List Users</a>
+            </li>
+        
+          <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['teamprofile']"><i class="icon-puzzle"></i> Team Profile</a>
+            </li>
+        <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['auxinfo']"><i class="icon-calculator"></i> Auxiliary Data</a>
+            </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- Breadcrumb -->
+    <!-- <ol class="breadcrumb">
+      <app-breadcrumbs></app-breadcrumbs>
+    </ol> -->
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div><!-- /.conainer-fluid -->
+  </main>
+</div>
+
+

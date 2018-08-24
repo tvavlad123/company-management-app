@@ -1,0 +1,74 @@
+
+.btn {
+    padding: 14px 24px;
+	/*border-radius: 24px;*/
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #ebecda ;
+	    color:#080930;
+}
+.in {
+    padding: 14px 24px;
+	/*border-radius: 24px;*/
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	color:#FFFFFF;
+	background: #000045 ;
+}
+
+.in:hover {
+    padding: 14px 24px;
+	/*border-radius: 24px;*/
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #123456 ;
+    color: #000045;
+}
+input.in:disabled {
+	background: #555555 ;
+    color: #333333;
+}
+
+.s {
+    padding: 14px 24px;
+	/*border-radius: 24px;*/
+    border: 1px solid black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #ebecda ;
+    color: #000045;
+}
+
+.b  {
+	margin-top:80px;
+	width: 100px;
+	height: 50px;
+  	border: 1px solid black;
+	background: #ccc;
+	text-align: center;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.simpleText {
+    padding: 13px 24px;
+	border: 1px solid black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	background: #ebecda ;
+    color: #000045;
+	}
+
+	body{
+		background: #FFFFFF;
+	}

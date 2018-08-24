@@ -1,0 +1,22 @@
+<br>
+<input type="button" value="New Team" (click)="showControls()" />
+
+
+<div *ngIf="selectedTeam">
+	<h2>
+		{{selectedTeam.name | uppercase }} is now selected.
+	</h2>
+</div>
+<router-outlet></router-outlet>
+<div *ngIf="showCreate">
+	<br>
+	<input type="text" [(ngModel)]="name" />
+	<select [(ngModel)]="department">
+		<option *ngFor = "let depart of depts" [ngValue]="depart">
+			{{depart.name}}
+			</option>
+		</select>
+
+	<button (click)="createTeam()">Create team</button>
+
+</div>

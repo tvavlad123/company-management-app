@@ -1,0 +1,33 @@
+<div class="back">
+    <img src='https://www.mhp.com/fileadmin/www.mhp.com/template/public/images/MHP_Logo_RGB.svg' style="width:400px; margin-left: auto ; margin-right: auto">
+</div>
+<br>
+<br>
+<div class="box">
+
+    <form class="formLogin" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="userpass" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <input class="inputLogin" type="text" required name="username" [(ngModel)]="model.username" #username="ngModel" />
+            <span class="highlight"></span>
+            <span class="bar"></span><label class="labelLogin"> Username </label>
+        </div>
+        <div class="userpass" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <input class="inputLogin" type="password" required name="password" [(ngModel)]="model.password" #password="ngModel" />
+            <span class="highlight"></span>
+            <span class="bar"></span><label class="labelLogin"> Password </label>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-outline-primary login-button">Login</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+
+            <!--<button class="btn btn-outline-primary" (click)="resetPassword()">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"> </span>
+            <font size="1" color="#123456"> Reset Password</font>
+            </button>-->
+
+        </div>
+        <div *ngIf="error" class="alert alert-error">{{error}}</div>
+    </form>
+
+</div>

@@ -1,0 +1,146 @@
+
+		<div (keyup)="onKey($event)">
+			<div class="table-responsive">
+				<table class="table table-bordred">
+					<thead>
+						<tr>
+							<th>
+								<p>Team Name</p>
+							</th>
+							<th>
+								<p>Department</p>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let team of teams" [class.selected]="team == selectedTeam" (click)="onSelect(team)">
+							<td>{{team.name}}</td>
+							<td>{{team.department.name}}</td>
+					</tbody>
+				</table>
+			</div>
+			<input class="btn btn-outline-primary buttontp midButton" type="button" value="Update Team" (click)="showUpdateControls()" [disabled]="!selectedTeam"
+			/>
+			<font color="#000045"></font>
+			<input class="btn btn-outline-primary buttontp midButton" type="button" value="Delete Team" (click)="showDeleteTeamConfDialog()" [disabled]="!selectedTeam"
+			/>
+			<font color="#000045"></font>
+			<input class="btn btn-outline-primary buttontp midButton" type="button" value="New Team" (click)="showCreateControls()" />
+			<font Color="#000045"></font>
+			<router-outlet></router-outlet>
+	
+			<div *ngIf="show">
+				<br>
+				<input class="simpleText" type="text" [(ngModel)]="selectedTeam.name" />
+				<select class="s" [(ngModel)]="selectedTeam.department">
+					<option *ngFor = "let depart of depts" [ngValue]="depart">
+							{{depart.name}}
+					</option> 
+				</select>
+				<input class="btn btn-outline-primary buttontp" type="button" (click)="updateTeam()" value="Update" />
+				<font Color="#000045"></font>
+			</div>
+			<br>
+			<div *ngIf="showCreate">
+				<br>
+				<input class="simpleText" placeholder="New team name" type="text" [(ngModel)]="name" />
+				<select class="s" [(ngModel)]="department">
+					<option *ngFor = "let depart of depts" [ngValue]="depart" [selected]="depart.name === 'SQL'">
+						{{depart.name}}
+					</option>
+				</select>
+				<input class="btn btn-outline-primary buttontp" type="button" (click)="createTeam()" value="Create team" />
+				<font Color="#000045"></font>
+			</div>
+	
+			<div class="horizontal-div row">
+				<div *ngIf="showMembers" class="col-md-5 form-group">
+	
+					<br>
+					<input class="form-control" type="text" placeholder="Search for team members" [(ngModel)]="memberName" (keyup)="onKeyUp()"
+					/>
+					<br>
+					<!--<button (click)="searchMembers()">
+			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			</button>-->
+					<div class="teamgradienttable table-responsive">
+						<table class="table table-bordred">
+							<thead>
+								<tr>
+									<!--<th>Id</th>-->
+									<th class="col-xs-2">First Name</th>
+									<th class="col-xs-2">Last Name</th>
+									<!-- <th class="col-xs-2">Photo Location</th> -->
+									<th class="col-xs-2">Authority</th>
+									<th class="col-xs-2">Position</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let member of teamMembers" [class.selected]="member == selectedMember" (click)="onMemberSelect(member)">
+									<td>{{member.firstName}}</td>
+									<td>{{member.lastName}}</td>
+									<!-- <td>{{member.photoLocation}}</td> -->
+									<td>{{member.authority.authorityType}}</td>
+									<td>{{member.position.name}}</td>
+								</tr>
+							</tbody>
+						</table>
+	
+					</div>
+				</div>
+	
+				<div class="col-md-2">
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class="row">
+						<button style="width:100%" class="btn btn-outline-primary buttontp" *ngIf="showRemoveButton" (click)="removeMember()" [disabled]="!selectedMember"> 
+							Remove Member
+						</button>
+					</div>
+					<br>
+					<div class="row">
+						<button style="width:100%" class="btn btn-outline-primary buttontp" *ngIf="showAddButton" (click)="addUserToTeam()" [disabled]="!selectedUser">
+							 Add Member
+						</button>
+					</div>
+				</div>
+	
+				<div *ngIf="showUsers" class="col-md-5 form-group">
+					<br>
+					<input class="form-control" type="text" placeholder="Search for other employees" [(ngModel)]="userName" (keyup)="onKeyUp()"
+					/>
+					<br>
+					<div class="teamgradienttable">
+						<table class="table table-bordred">
+							<thead>
+								<tr>
+									<!--<th>Id</th>-->
+									<th>First Name</th>
+									<th>Last Name</th>
+									<!-- <th>Photo Location</th> -->
+									<th>Authority</th>
+									<th>Position</th>
+									<th>Team</th>
+									<th>Department</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let user of allUsers" [class.selected]="user == selectedUser" (click)="onUserSelect(user)">
+									<td>{{user.firstName}}</td>
+									<td>{{user.lastName}}</td>
+									<!-- <td>{{user.photoLocation}}</td> -->
+									<td>{{user.authority.authorityType}}</td>
+									<td>{{user.position.name}}</td>
+									<td>{{user.team.name}}</td>
+									<td>{{user.team.department.name}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<router-outlet></router-outlet>

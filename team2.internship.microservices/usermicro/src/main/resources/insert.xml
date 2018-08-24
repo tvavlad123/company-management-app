@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+	<include file="create.xml" /> 
+
+	<changeSet author="itodericiu" id="20170808-011">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup language_level
+    	    	 
+				INSERT INTO public.language_levelms (LANGUAGE_LEVEL_ID, NAME) VALUES (nextval('public."language_levelms_seq"'), 'Elementary proficiency');
+				INSERT INTO public.language_levelms (LANGUAGE_LEVEL_ID, NAME) VALUES (nextval('public."language_levelms_seq"'), 'Limited working proficiency');
+				INSERT INTO public.language_levelms (LANGUAGE_LEVEL_ID, NAME) VALUES (nextval('public."language_levelms_seq"'), 'Professional working proficiency');
+				INSERT INTO public.language_levelms (LANGUAGE_LEVEL_ID, NAME) VALUES (nextval('public."language_levelms_seq"'), 'Full professional proficiency');
+				INSERT INTO public.language_levelms (LANGUAGE_LEVEL_ID, NAME) VALUES (nextval('public."language_levelms_seq"'), 'Native or bilingual proficiency');
+				
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170808-012">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup skill_level
+    	    	 
+				INSERT INTO public.skill_levelms (SKILL_LEVEL_ID, NAME) VALUES (nextval('public."skill_levelms_seq"'), 'Fundamental');
+				INSERT INTO public.skill_levelms (SKILL_LEVEL_ID, NAME) VALUES (nextval('public."skill_levelms_seq"'), 'Basic');
+				INSERT INTO public.skill_levelms (SKILL_LEVEL_ID, NAME) VALUES (nextval('public."skill_levelms_seq"'), 'Intermediate');
+				INSERT INTO public.skill_levelms (SKILL_LEVEL_ID, NAME) VALUES (nextval('public."skill_levelms_seq"'), 'Advanced');
+				INSERT INTO public.skill_levelms (SKILL_LEVEL_ID, NAME) VALUES (nextval('public."skill_levelms_seq"'), 'Proficient');
+				
+			]]>
+		</sql>
+	</changeSet>
+
+
+	<changeSet author="itodericiu" id="20170727-001">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup authority
+    	    	 
+				INSERT INTO public.authorityms (AUTHORITY_ID, NAME) VALUES (nextval('public."authorityms_seq"'), 'ROLE_EMPLOYEE');
+				INSERT INTO public.authorityms (AUTHORITY_ID, NAME) VALUES (nextval('public."authorityms_seq"'), 'ROLE_TEAM_COORD');
+				INSERT INTO public.authorityms (AUTHORITY_ID, NAME) VALUES (nextval('public."authorityms_seq"'), 'ROLE_TEAM_LEAD');
+				INSERT INTO public.authorityms (AUTHORITY_ID, NAME) VALUES (nextval('public."authorityms_seq"'), 'ROLE_ADMIN');
+				
+			]]>
+		</sql>
+	</changeSet>
+
+
+	<changeSet author="itodericiu" id="20170727-002">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup department
+    	    	 
+				INSERT INTO public.departmentms (DEPARTMENT_ID, NAME) VALUES (nextval('public."departmentms_seq"'), 'Frontend');
+				INSERT INTO public.departmentms (DEPARTMENT_ID, NAME) VALUES (nextval('public."departmentms_seq"'), 'Backend');
+				INSERT INTO public.departmentms (DEPARTMENT_ID, NAME) VALUES (nextval('public."departmentms_seq"'), 'SQL');
+				
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170727-003">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup team
+    	    	 
+				INSERT INTO public.teamms (TEAM_ID, NAME, DEPARTMENT_ID) VALUES (nextval('public."teamms_seq"'), 'Unicorn',1);
+				INSERT INTO public.teamms (TEAM_ID, NAME, DEPARTMENT_ID) VALUES (nextval('public."teamms_seq"'), 'Rainbow',2);
+				INSERT INTO public.teamms (TEAM_ID, NAME, DEPARTMENT_ID) VALUES (nextval('public."teamms_seq"'), 'Star',3);
+				INSERT INTO public.teamms (TEAM_ID, NAME, DEPARTMENT_ID) VALUES (nextval('public."teamms_seq"'), 'Daisies',1);
+				
+			]]>
+		</sql>
+	</changeSet>
+	
+	
+	<changeSet author="itodericiu" id="20170727-004">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup language
+    	    	 
+				INSERT INTO public.languagems (LANGUAGE_ID, NAME) VALUES (nextval('public."languagems_seq"'), 'English');
+				INSERT INTO public.languagems (LANGUAGE_ID, NAME) VALUES (nextval('public."languagems_seq"'), 'German');
+				INSERT INTO public.languagems (LANGUAGE_ID, NAME) VALUES (nextval('public."languagems_seq"'), 'Romanian');
+				INSERT INTO public.languagems (LANGUAGE_ID, NAME) VALUES (nextval('public."languagems_seq"'), 'Hungarian');
+				INSERT INTO public.languagems (LANGUAGE_ID, NAME) VALUES (nextval('public."languagems_seq"'), 'French');
+				INSERT INTO public.languagems (LANGUAGE_ID, NAME) VALUES (nextval('public."languagems_seq"'), 'Spanish');
+				
+				
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170727-005">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup position
+    	    	 
+				INSERT INTO public.positionms (POSITION_ID, NAME) VALUES (nextval('public."positionms_seq"'), 'Junior Consultant');
+				INSERT INTO public.positionms (POSITION_ID, NAME) VALUES (nextval('public."positionms_seq"'), 'Consultant');
+				INSERT INTO public.positionms (POSITION_ID, NAME) VALUES (nextval('public."positionms_seq"'), 'Senior Consultant');
+				INSERT INTO public.positionms (POSITION_ID, NAME) VALUES (nextval('public."positionms_seq"'), 'Manager');
+				
+			]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-006">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup user
+    	    	 
+			     INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Ioana', 'Todericiu', 'itodericiu', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 1, 'http://i.imgur.com/yguBNqT.jpg', 1, 1, TRUE, '2017-06-20 12:00:00');
+				 INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Cristina', 'Vlad', 'cvlad', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 2, 'http://i.imgur.com/XthV5YS.jpg', 2, 2, TRUE, '2017-07-23 19:23:00');
+				 INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Cyntia', 'Albert', 'calbert', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 3, 'http://i.imgur.com/LaNgDc8.jpg', 2, 3, TRUE, '2017-08-05 12:23:23');
+				 INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Stefan', 'Oltean', 'soltean', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 1, 'http://i.imgur.com/fptThxl.jpg', 1, 4, TRUE, '2017-07-12 09:09:09');
+				 INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Iosif', 'Pop', 'ipop', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 4, 'http://i.imgur.com/pXIZ7pM.jpg', 4, 1, TRUE, '2017-11-21 10:13:06');
+				 INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Fineas', 'Stir', 'fstir', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 1, 'http://i.imgur.com/HcP1axc.jpg', 4, 4, TRUE, '2017-01-07 03:45:22');
+				 INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Matei', 'Milotoiu', 'mmilotoiu', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 3, 'http://i.imgur.com/J7XpRir.jpg', 3, 3, TRUE, '2017-03-29 08:30:30');
+				 INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Vlad', 'Toader', 'vtoader', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 3, 'http://i.imgur.com/CX1MjMG.jpg', 2, 2, TRUE, '2017-09-18 14:56:02');
+				 INSERT INTO public.userms (USER_ID, FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, AUTHORITY_ID, PHOTO, POSITION_ID, TEAM_ID, ENABLED, LASTPASSWORDRESETDATE) VALUES (nextval('public."userms_seq"'), 'Admin', 'Admin', 'admin', '$2a$10$gz.TGgTBJlDok/Zg99o.U.pgNbjXM951Y.JDNwlM6Y8wEmE1rgi5C', 4, 'http://i.imgur.com/CX1MjMG.jpg', 2, 2, TRUE, '2017-09-18 14:56:02');
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170727-007">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup skill
+    	    	 
+				INSERT INTO public.skillms (SKILL_ID, NAME) VALUES (nextval('public."skillms_seq"'), 'Java');
+				INSERT INTO public.skillms (SKILL_ID, NAME) VALUES (nextval('public."skillms_seq"'), 'Angular');
+				INSERT INTO public.skillms (SKILL_ID, NAME) VALUES (nextval('public."skillms_seq"'), 'Spring');
+				INSERT INTO public.skillms (SKILL_ID, NAME) VALUES (nextval('public."skillms_seq"'), 'C++');
+				INSERT INTO public.skillms (SKILL_ID, NAME) VALUES (nextval('public."skillms_seq"'), 'Ruby On Rails');
+				
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170727-008">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup userSkill
+    	    	 
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 1,1, 1);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 1,5, 2);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 2,3, 3);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 2,2, 4);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 3,4, 5);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 4,1, 1);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 4,5, 2);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 5,3, 3);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 5,2, 4);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 6,4, 5);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 6,5, 1);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 7,2, 2);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 7,4, 3);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 3,1, 4);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 8,3, 5);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 8,1, 1);
+				INSERT INTO public.user_skillms (USER_SKILL_ID, USER_ID, SKILL_ID, SKILL_LEVEL_ID) VALUES (nextval('public."user_skillms_seq"'), 4,2, 2);
+				
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170727-009">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup userLanguage
+    	    	 
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 1,1, 1);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 1,3, 2);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 2,2, 3);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 2,4, 4);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 3,3, 5);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 3,4, 1);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 4,2, 2);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 4,3, 3);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 5,4, 4);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 5,1, 5);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 6,2, 5);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 6,3, 4);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 7,1, 3);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 7,2, 2);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 8,3, 1);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 8,1, 4);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 1,4, 3);
+				INSERT INTO public.user_languagems (USER_LANGUAGE_ID, USER_ID, LANGUAGE_ID, LANGUAGE_LEVEL_ID) VALUES (nextval('public."user_languagems_seq"'), 2,1, 2);
+
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170727-010">
+		<sql>
+    	    <![CDATA[
+    	    	 -- Setup teamLead
+    	    	 
+				INSERT INTO public.team_leadms (TEAM_LEAD_ID, USER_ID, TEAM_ID) VALUES (nextval('public."team_leadms_seq"'), 1,1);
+				INSERT INTO public.team_leadms (TEAM_LEAD_ID, USER_ID, TEAM_ID) VALUES (nextval('public."team_leadms_seq"'), 2,2);
+				INSERT INTO public.team_leadms (TEAM_LEAD_ID, USER_ID, TEAM_ID) VALUES (nextval('public."team_leadms_seq"'), 3,3);
+				INSERT INTO public.team_leadms (TEAM_LEAD_ID, USER_ID, TEAM_ID) VALUES (nextval('public."team_leadms_seq"'), 4,4);
+				
+			]]>
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

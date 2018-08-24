@@ -1,0 +1,62 @@
+<div class="row">
+        <div class="col-md-2 navbutton navbar-fixed-top navbar-fixed-bottom">
+             <ul class="ulclass">
+                <!-- <li>
+                    <p> <a class="btn btn-outline-primary" (click)="setActiveAnchor(1)" [class.active]="activeAnchor === 1"> Home </a> </p>
+                </li> -->
+                <br>
+                <li>
+                        <img class="navbarImage" src='http://www.mhp.com/fileadmin/mhp.de/assets/og/mhp_opengraph.jpg'>
+                </li>
+                <li>
+                    <p> <a class="btn btn-outline-primary btnnav" (click)="setActiveAnchor(2)" [class.active]="activeAnchor === 2">Create<br>User</a> </p>
+                </li>
+                <br>
+                <li>
+                    <p> <a class="btn btn-outline-primary btnnav" (click)="setActiveAnchor(3)" [class.active]="activeAnchor === 3"> List<br>Users </a> </p>
+                </li>
+                <br>                
+                <li>
+                    <p> <a class="btn btn-outline-primary btnnav" (click)="setActiveAnchor(4)" [class.active]="activeAnchor === 4">List<br>Teams</a> </p>
+                </li>
+                <br>                
+                <li>
+                    <p> <a class="btn btn-outline-primary btnnav" (click)="setActiveAnchor(5)" [class.active]="activeAnchor === 5">Auxiliary<br>Data</a> </p>
+                </li> 
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>                
+                <br>
+                <button class="btn btn-outline-primary btnnav" routerLink="/loginpage">
+            Log Out
+            </button>
+            </ul>
+    </div>
+
+    <div class="col-md-10">
+        <div *ngIf="activeAnchor === 1">
+            <!-- Home Page  -->
+        </div>
+        <div *ngIf="activeAnchor === 2">
+            <app-create-user (createUserComplete)="createUserComplete($event)"></app-create-user>
+         </div>
+        <div *ngIf="activeAnchor === 3">
+            <app-listusers></app-listusers>
+        </div>
+        <div *ngIf="activeAnchor === 4">
+            <app-teamprofile></app-teamprofile>
+        </div>
+        <div *ngIf="activeAnchor === 5">
+            <app-auxinfo></app-auxinfo>
+        </div>
+    </div>
+
+</div>
+

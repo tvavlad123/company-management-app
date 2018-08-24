@@ -1,0 +1,52 @@
+<div class="table-responsive">
+  <div class="form-group">
+    <label type="text" for="startDate"> Start date :</label>
+    <input type="date" class="date" rows="1" id="startDate" [ngModel]="vacationRequest.start_date | date:'yyyy-MM-dd'" [(ngModel)]="vacationRequest.start_date"
+      (change)="startDateChanged()" />
+  </div>
+  <br>
+  <br>
+  <div class="form-group">
+    <label type="text" for="endDate">End date :</label>
+    <input type="date" class="date" rows="1" id="endDate" [ngModel]="vacationRequest.end_date | date:'yyyy-MM-dd'" [(ngModel)]="vacationRequest.end_date"
+      (change)="startDateChanged()" />
+  </div>
+</div>
+<br>
+<div>
+  <div class="alert alert-success" role="alert" *ngIf="alert1">
+    <strong>Please set start date!</strong>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="alert2">
+    <strong>Start date cannot be in the past!</strong>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="alert3">
+    <strong>Invalid date! </strong>Start date must be before end date or should equal end date :)
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="alert5">
+    <strong>Vacation request not sent! You do not have so many days left!</strong>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="alert6">
+    Vacation request succesfully sent! You still have <strong>{{result}}</strong> days left!
+  </div>
+</div>
+<br>
+<div class="form-group">
+  <label for="comment"> Comment:</label>
+  <textarea class="form-control" rows="5" id="comment" placeholder="Comment something..." [(ngModel)]="vacationRequest.comments "></textarea>
+</div>
+<br>
+<div class="form-group">
+  <label for="picture"> Upload a photo :</label>
+  <div class="text-center">
+    <input type="file" accept="image/*" (change)="changeListener($event)">
+  </div>
+</div>
+<br>
+<div>
+  <button class="btn btn-secondary btn-lg" type="button" (click)="createVacationRequest()" [disabled]="!showsaveRequest">Save</button>
+</div>

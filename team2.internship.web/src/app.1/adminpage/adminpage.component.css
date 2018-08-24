@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url('https://fonts.googleapis.com/css?family=Exo:600');
+
+body{
+	background-image: url(http://i.imgur.com/nhpS78a.jpg);
+	background-size:cover;
+}
+
+.div{
+	position:absolute;
+	background-color :rgba(0,0,0,0.5);
+	width: 500px;
+	height:600px;
+	left:960px;
+	top:70px;
+}
+
+img{
+	margin-left:76px;
+	margin-top:60px;
+}
+
+p{
+	text-align:center;
+	font-family: 'Noto Sans', sans-serif;
+	font-size:30px;
+	color:#909193;
+}
+
+form{
+	margin-top : 50px;
+	margin-left:90px;
+}
+
+input{
+	height: 35px;
+}
+
+button{
+	margin-left:68px;
+	border-style: outset;
+	width: 180px;
+	height:50px;
+	background: linear-gradient(to bottom right, #7B7B7B, white);
+	border-radius: 30px;
+	font-size:15px;
+
+
+}

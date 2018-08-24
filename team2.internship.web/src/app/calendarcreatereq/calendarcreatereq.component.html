@@ -1,0 +1,163 @@
+<div>
+  <br>
+  <br>
+  <br>
+    <!-- <table class="table table-bordered"> -->
+  <table class="table table">
+      <thead class="cal">
+        <tr>
+          <th class="text-center" colspan="30">Calendar</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th class="text-center" colspan="30">
+              <button (click)="prevMonthUser()" class="btn btn-default ale" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                </button>
+                {{month}} {{year}}
+            <button (click)="nextMonthUser()" class="btn btn-default ale" aria-label="Left Align">
+              <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+            </button>
+          </th>
+    
+        </tr>
+      </thead>
+      <thead  class="dd">
+        <tr>
+          <th class="text-center" colspan="5">WEEKS</th>
+          <th class="text-center" colspan="5">WEEK 1</th>
+          <th class="text-center" colspan="5">WEEK 2</th>
+          <th class="text-center" colspan="5">WEEK 3</th>
+          <th class="text-center" colspan="5">WEEK 4</th>
+          <th class="text-center" colspan="5">WEEK 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  class="dow">
+          <th colspan="5">Day of the week</th>
+          <th *ngFor="let item of items; let i = index" class="text-center hh" width="4%"> 
+            <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.dayInMonth==0" class="colob" >
+              {{item.day}}
+            </div>
+            <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.dayInMonth>0" >
+              {{item.day}}
+              <br>
+              <span class="cocojambo" align="center">{{userActive?.tableEntry?.requestsImplementation[i].dayInMonth}}</span>
+            </div>
+          </th>
+        </tr>
+        
+        <tr >
+            <th colspan="5">{{userActive?.firstName}} {{userActive?.lastName}}</th>
+            <td *ngFor="let item of items; let i = index" class="text-center aleale" 
+                (click)="selectCellUser( i)">
+              <div></div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.dayInMonth==0" class="coloa"> </div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='VACATION'" class="vacationAccepted" > </div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='VACATION_PENDING'" class="vacationPending"> </div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='HOME_OFFICE_WHOLE_DAY'" class="homeOfficeWDAccepted"> </div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='HOME_OFFICE_FIRST_HALF'" class="homeOfficeFHAcceptedWrapper">
+              <div class="hoFHRight" ></div>
+              <div class="hoFHLeft" ></div>
+              </div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='HOME_OFFICE_SECOND_HALF'" class="homeOfficeSHAcceptedWrapper"> 
+                  <div class="hoSHRight" ></div>
+                  <div class="hoSHLeft" ></div>
+              </div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='HOME_OFFICE_PENDING_WHOLE_DAY'" class="homeOfficePendingWH"> </div> 
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='HOME_OFFICE_PENDING_FIRST_HALF'" class="homeOfficeFHPendingWrapper">
+                  <div class="hoFHRightP" ></div>
+                  <div class="hoFHLeftP" ></div>
+              </div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='HOME_OFFICE_PENDING_SECOND_HALF'" class="homeOfficeSHPendingWrapper"> 
+                  <div class="hoSHRightP" ></div>
+                  <div class="hoSHLeftP" ></div>
+              </div>
+              <div *ngIf="userActive?.tableEntry?.requestsImplementation[i]?.type=='UNINITIALIZED'" class="uninitialized"
+              [ngClass]="{'selected': userActive?.tableEntry.requestsImplementation[i].selected}"> </div>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <button class="popup" (click)="myFunction()">Make a home office request
+        <span class="popuptext" id="myPopup">
+          <div class="form-group">
+              <label type="text"> Request type:</label>
+              <br>
+      
+                <label><input class="btn btn-primary" type="button" name="options" id="option1" checked (click)="setHalfDay(3)" value="Whole Day" /></label>
+                <label><input class="btn btn-primary" type="button" name="options" id="option2" (click)="setHalfDay(1)" value="First half"/></label>
+                <label><input class="btn btn-primary" type="button" name="options" id="option3" (click)="setHalfDay(2)" value="Second half"/></label>
+               <br>
+                <input type="button" (click)="createHomeOfficeRequest()" value= "Send request" style="color:black">
+
+              
+          </div>
+        
+      
+        </span>
+      </button>
+
+      <button class="popup" (click)="myFunction1()">Make a vacation request
+          <span class="popuptext1" id="myPopup1">
+              <div class="form-group">
+                  <label for="comment"> Comment:</label>
+                  <textarea class="form-control" rows="5" id="comment" placeholder="Comment something..." [(ngModel)]="vacationRequest.comments "></textarea>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                  <label for="picture"> Picture :</label>
+                  <div class="form-group">
+                      <label for="picture"> Upload a photo :</label>
+                      <div class="text-center">
+                        <input type="file" accept="image/*" (change)="changeListener($event)">
+                      </div>
+                    </div>
+                  </div>
+                  <input type="button" (click)="createVacationRequest()" value= "Send request" style="color:black"> 
+        
+          </span>
+        </button>
+  </div>
+
+  
+
+<table class="legend">
+    <tr>
+    <th  colspan="2" class="leg">LEGEND</th>
+    </tr>
+    <tr>
+      <td>
+    <div>Vacation Request Accepted </div>  
+      </td>
+      <td>
+          <div class="vra"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+    <div>Vacation Request Pending </div>
+      </td>
+      <td>
+        <div class="vrp"></div> 
+        </td>
+    </tr>
+    <tr>
+      <td>
+    <div>Home Office Request Accepted </div>
+      </td>
+      <td>
+     <div class="hora"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+    <div>Home Office Request Pending </div>
+      </td>
+      <td>
+      <div class="horp"></div>
+      </td>
+    </table>

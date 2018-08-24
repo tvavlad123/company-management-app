@@ -1,0 +1,129 @@
+div.horizontal-div {
+	display: inline-block;
+}
+
+div.horizontal-div.usertables{
+	/* width: 30%; */
+	vertical-align: top;
+	display: inline-block;
+}
+
+div.row{
+	text-align: left;
+}
+
+div.usertables:nth-child(1) {
+	padding-left: 0;
+}
+
+div.usertables:nth-child(3) {
+	padding-right: 0;
+}
+
+.select-update-user{
+	width: 11vw;
+	display: inline-block;
+	align-content: center;
+	min-height: 10%;
+}
+
+div.vertical-div {
+	display: block;
+}
+
+.btn:disabled{
+	color:white;
+	border-color:#29363d;
+	background-color: #29363d;
+	opacity: 0.6;
+}
+.btn:disabled:hover{
+	color:white;
+	border-color:#29363d;
+	background-color: #29363d;
+	cursor:not-allowed;
+	opacity: 0.6;
+}
+
+div.horizontal-div.userlevels{
+	width: 18.2%;
+	padding-left:0px;
+}
+
+.btn-remove{
+	
+	width:80%;
+}
+
+.btn-update-user{
+	background-color:#29363d;
+	border-color: #29363d;
+	color: white;
+	opacity: 1;
+	font-size:18px;
+	font-weight: 700;
+	/* padding:10px 10px 10px 5px; */
+	display:block;
+	border-width: 2px;
+	border-radius:2px;
+	width:94.5%;
+	
+}
+
+.btn-middle{
+	    height: 2vw;
+	padding-top: 3px;
+	font-size:15px;
+	margin-left:7%;
+	width:85.5%;
+	margin-bottom: 10px;
+}
+	
+.btn-update-user:hover{
+	color: #29363d;
+	border-color: #29363d;
+	background-color: white;
+	opacity: 1;
+}
+
+
+.table-responsive-user-update{
+	max-height: 120px;
+	display:table;
+}
+
+.table-update-user tr.selected{
+	padding: 0px;
+	background: #5c6a82;
+	color: #FFFFFF;   
+	
+	align-content: right;
+}
+
+.table-update-user{
+	table-layout:fixed;
+	width:94.5%;
+}
+
+div.vertical-div span {
+	display: inline;
+}
+
+label{
+	display: inline-block;
+	width: 60px;
+	padding: 8px;
+}
+
+select.common{
+	width:161px;
+}
+
+.usert{
+	width: 40%;	
+}
+
+.tinverse{
+	background-color: #29363d;
+	color: white;
+}

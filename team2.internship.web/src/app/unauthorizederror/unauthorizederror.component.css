@@ -1,0 +1,22 @@
+body{
+    background-color: white;
+    align-content: center;
+}
+
+.errortitle{
+    align-content: center;
+    margin: 0 auto;
+}
+
+button.backtologin{
+	color: #29363d;
+	border-color: #29363d;
+	font-size:15px;
+	opacity: 0.6;
+}
+
+button.backtologin:hover{
+	background-color:#29363d;
+    border-color: #29363d;
+    color: white;
+}

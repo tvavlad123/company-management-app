@@ -1,0 +1,66 @@
+<div class="names">
+  <br>
+  <br>
+  <div class="group">
+    <input class="createuserinput" type="text" [(ngModel)]="user.firstName" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>First Name</label>
+  </div>
+  <!-- <br> -->
+  <div class="group">
+    <input class="createuserinput" type="text" [(ngModel)]="user.lastName" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Last name</label>
+  </div>
+  <!-- <br> -->
+  <div class="group">
+    <input class="createuserinput" type="text" [(ngModel)]="user.userName" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>User Name</label>
+  </div>
+  <!-- <br>  -->
+  <!-- <div class="group">
+    <input class="createuserinput" class="createuserinput" type="password" [(ngModel)]="user.password" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Password</label>
+  </div> -->
+  <br>
+
+  <div class="row">
+    <div class="col-md-4">
+      <select class="common" [(ngModel)]=selectedAuthority>
+        <option disabled hidden [value]="selectUndefinedOptionValue">Role</option>
+        <option *ngFor="let authority of authorities"  [ngValue]="authority" >
+          {{authority.authorityType}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <select class="common" [(ngModel)]=selectedPosition>
+          <option disabled hidden [value]="selectUndefinedOptionValue">Position</option>
+        <option *ngFor="let position of positions" [ngValue]="position">
+          {{position.name}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <select class="common" [(ngModel)]=selectedTeam>
+        <option disabled hidden [value]="selectUndefinedOptionValue">Team</option>
+        <option *ngFor="let team of teams" [ngValue]="team">
+          {{team.name}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <br>
+</div>
+  <br>
+  <br>
+  <br>
+<input class="btn btn-outline-primary btncreate"  style="position: absolute; right: 4.5%;" type="button" value="Create User" (click)="createUser() ">
+<!-- <button class="btn btn-outline-primary btncreate" (click)="createUser()">Create user</button> -->

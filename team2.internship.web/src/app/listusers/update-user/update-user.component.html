@@ -1,0 +1,179 @@
+<!--SKILLS TABLE-->
+<div class="row" style="margin-bottom:5%; margin-top:7%;width:97.8%;margin-left:0%;">
+  <div class="col-md-5 usertables">
+    <div class="table-responsive-user-update">
+      <table class="table table-update-user">
+        <thead class="thead-inverse tinverse">
+          <tr>
+            <th>
+              <p>Skill</p>
+            </th>
+            <th>
+              <p>Level</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let skill of currentSkills" [class.selected]="skill == selectedCurrentSkill" (click)="onSelectCurrentSkill(skill)">
+            <td>{{skill.skill.name}}</td>
+            <td>{{skill.level.name}}</td>
+        </tbody>
+      </table>
+    </div>
+    <input type="button" class="btn btn-outline-primary btn-update-user btn-remove" value="Remove Skill" (click)="removeSkill()"
+      [disabled]="!selectedCurrentSkill" />
+
+    <br>
+    <br>
+    <div *ngIf="userToUpdate.authority.authorityType==='Team Leader'" class="table-responsive-user-update">
+      <table class="table table-update-user">
+        <thead class="thead-inverse tinverse">
+          <tr>
+            <th>
+              <p>Team</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teamsToAdd" [class.selected]="team == selectedTeamLead" (click)="onSelectTeamCurrent(team)">
+            <td>{{team.team.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="button" class="btn btn-outline-primary btn-update-user btn-remove" value="Remove Team" (click)="deleteTeamLead()"
+        [disabled]="!selectedTeamLead" />
+    </div>
+
+
+  </div>
+
+  <!--LEVELS DIVS-->
+  <div class="col-md-2 horizontal-div userlevels">
+
+        <select class="select-update-user" [(ngModel)]="selectedAvailableSkill">
+          <option value="null" hidden>Choose skill...</option>
+          <option *ngFor="let sskill of availableSkills" [ngValue]="sskill">
+            {{sskill.name}}
+          </option>
+        </select>
+        <br>
+
+        <select class="select-update-user" [(ngModel)]="skillLevelToAdd">
+          <option value="null" hidden>Choose level...</option>
+          <option *ngFor="let level of skillLevels" [ngValue]="level">
+            {{level.name}}
+          </option>
+        </select>
+
+        <input type="button" class="btn btn-outline-primary btn-update-user btn-middle" value="Add Skill" (click)="addSkill()" [disabled]="!(selectedAvailableSkill&&skillLevelToAdd)"
+        />
+
+
+        <select *ngIf="userToUpdate.authority.authorityType==='Team Leader'" class="select-update-user" [(ngModel)]="selectedTeamNew">
+          <option value="null" hidden>Choose team...</option>
+          <option *ngFor="let team of allTeams" [ngValue]="team">
+            {{team.name}}
+          </option>
+        </select>
+
+        <input *ngIf="userToUpdate.authority.authorityType==='Team Leader'" type="button" class="btn btn-outline-primary btn-update-user btn-middle" value="Add Team" (click)="addTeamLead()" [disabled]="!(selectedTeamNew)"
+        />
+
+
+        <select class="select-update-user" [(ngModel)]="selectedAvailableLanguage">
+          <option value="null" hidden>Choose language...</option>
+          <option *ngFor="let llanguage of availableLanguages" [ngValue]="llanguage">
+            {{llanguage.name}}
+          </option>
+        </select>
+        <br>
+
+        <select class="select-update-user" [(ngModel)]="languageLevelToAdd">
+          <option value="null" hidden>Choose level...</option>
+          <option *ngFor="let llevel of languageLevels" [ngValue]="llevel">
+            {{llevel.name}}
+          </option>
+        </select>
+        <br>
+        <input type="button" class="btn btn-outline-primary btn-update-user btn-middle" value="Add Language" (click)="addLanguage()" [disabled]="!selectedAvailableLanguage"
+        />
+
+        <br>
+        <br>
+        <button class="btn btn-outline-primary btn-update-user" (click)="updateUser()" style="margin-left:0%;">Update user</button>
+
+
+
+  </div>
+
+  <!--LANGUAGES TABLE-->
+  <div class="col-md-5 usertables usert">
+    <div class="table-responsive-user-update">
+      <table class="table table-update-user">
+        <thead class="thead-inverse tinverse">
+          <tr>
+            <th>
+              <p>Language</p>
+            </th>
+            <th>
+              <p>Level</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let language of currentLanguages" [class.selected]="language == selectedCurrentLanguage" (click)="onSelectCurrentLanguage(language)">
+            <td>{{language.language.name}}</td>
+            <td>{{language.level.name}}</td>
+        </tbody>
+      </table>
+    </div>
+    <input type="button" class="btn btn-outline-primary btn-update-user btn-remove" value="Remove Language" (click)="removeLanguage()"
+      [disabled]="!selectedCurrentLanguage" />
+  </div>
+
+</div>
+
+<!--PROMPT FOR UPDATE USER-->
+
+<!--<div *ngIf="flag" class="dialogbox fade">
+  <div class="dialogcontent">
+    <div class="dialogheader">
+      <button type="button" class="dialogclose" (click)="cancelUpdate()" data-dismiss="dialogbox"><span class="glyphicon glyphicon-remove"></span></button>
+      <h4 class="dialogtitle" id="dialogheading">Delete User</h4>
+    </div>
+    <div class="dialogbody">
+      <div class="dialogtext"><span class="glyphicon glyphicon-warning-sign"></span>Do you want to save changes to this user?</div>
+    </div>
+    <div class="dialogfooter">
+      <button type="button" class="btn btn-success" data-dismiss="dialogbox" (click)="updateUser()"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+      <button type="button" class="btn btn-default" data-dismiss="dialogbox" (click)="cancelUpdate()"><span class="glyphicon glyphicon-remove"></span> No</button>
+    </div>
+  </div>
+</div>-->
+
+
+<!--<p data-placement="top" data-toggle="tooltip" title="Delete">
+  <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#deleteUserDialog">
+      <span class="glyphicon glyphicon-trash"></span>
+    </button>
+</p>
+
+<div class="modal fade" id="deleteUserDialog" tabindex="-1" role="dialog" aria-labelledby="edit" aria- hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Update User</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Do you want to keep the changes you made?</div>
+
+      </div>
+      <div class="modal-footer ">
+        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign" data-dismiss="modal" (click)="updateUser()"></span> Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" (click)="cancelUpdate()"></span> No</button>
+      </div>
+    </div>
+  </div>
+</div>-->

@@ -1,0 +1,154 @@
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+
+.panelStyle{
+	background-color: #D3D3D3;
+}
+
+.inputStyle{
+	background-color: #000045;
+}
+
+
+.user-row {
+    margin-bottom: 30px;
+}
+
+.user-row:last-child {
+    margin-bottom: 20px;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 2px solid  #9696e8;
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+
+.toppad{
+	margin-top: 10px;
+}
+
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000045; 
+  text-align: center;
+  cursor: pointer;
+  width: 33%;
+  font-size: 16px;
+}
+
+.skill-table {
+    margin-bottom: 0;
+}
+
+
+button:hover, a:hover {
+  	opacity: 0.5;
+	background-color:#000045;
+	font-family: 'Lato', sans-serif;
+}
+
+.file-upload{
+   margin-left: 200px;
+}
+
+.img-circle {
+    border-radius: 45%;
+}
+
+
+
+.top-photo{
+	border: 2px solid #000000;
+	padding: 0;
+	margin:0;
+	z-index: -110;
+ 
+}
+.top-photo img{
+	width: 100%;
+	max-height: 400px;
+}
+
+.user img{
+	max-height: 250px;
+	max-width: 250px;
+	position: absolute;
+	margin-left: 10%;
+	margin-top: -17%;
+	border: 2px solid #ffffff;
+}
+
+.about{
+	margin:10px;
+	padding: 10px;
+  	font-size: 16px;
+  	font-weight: 700;
+}
+
+.about h3{
+	position: relative;
+	margin-top: 5px; 
+	font-size: 26px;
+	font-weight: 700;
+	color: #000000;
+}
+
+.searchDiv{
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+}
+
+
+
+.circular-square {
+    border-radius: 50%;
+    max-height: 60px;
+	max-width: 60px;
+	position: relative;
+	margin-right: 10%;
+	margin-top: -3%;
+	border: 1px solid #ffffff;
+}
+
+
+.userHomeLogo{
+    position: relative;
+    margin-top: 2%;
+}
+
+
+

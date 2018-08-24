@@ -1,0 +1,20 @@
+<body>
+  <div>
+    <label type="text" class="in"> Start date :</label>
+    <input type="date" [ngModel]="startDate | date:'yyyy-MM-dd'" [(ngModel)]="startDate" />
+
+    <br>
+    <br>
+    <label type="text" class="in">End date :</label>
+    <input type="date" [ngModel]="endDate | date:'yyyy-MM-dd'" [(ngModel)]="endDate" />
+
+    <br>
+    <br>
+    <label type="text" class="in" >Half Day :</label>
+    <input type="checkbox" class="btn btn-outline-success in" [(ngModel)]="halfday" />
+
+    <br>
+    <br>
+    <button class="btn btn-outline-success in" type="button" (click)="save()" value="Save">Save</button>
+  </div>
+</body>

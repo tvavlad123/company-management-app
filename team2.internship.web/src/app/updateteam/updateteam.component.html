@@ -1,0 +1,39 @@
+<!--
+<label> team name: </label>
+<input type="text" [(ngModel)]="team.name"/>
+<br>
+<select name="Department">
+  <option value="">Java</option>
+</select>
+-->
+
+<table>
+  <thead>
+    <tr>
+      <!--<th>Id</th>-->
+      <th>TeamId</th>
+      <th>Name</th>
+      <th>Department</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of teams" 
+      [class.selected]="team == selectedTeam"
+        (click)="onSelect(team)">
+    <td>{{user.TeamId}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.team.department.name}}</td>
+    <!--</tr>-->
+  </tbody>
+</table>
+
+<input type ="button" value="Update Team" (click)="showTeams()"/>
+<input type ="button" value="Delete Team" (click)="hideTeams()"/>
+
+
+<div *ngIf="selectedTeam">
+  <h2>
+    {{selectedTeam.name | uppercase}} is now selected.
+  </h2>
+</div>
+<router-outlet></router-outlet>

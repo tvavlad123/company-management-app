@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+	<include file="create.xml" />
+
+	<changeSet author="itodericiu" id="20170810-001">
+		<sql>
+    	    <![CDATA[
+ 
+    	    	 INSERT INTO public.statusms (STATUS_ID, NAME) VALUES (nextval('public."statusms_seq"'), 'UNRESOLVED');
+				 INSERT INTO public.statusms (STATUS_ID, NAME) VALUES (nextval('public."statusms_seq"'), 'ACCEPTED');
+				 INSERT INTO public.statusms (STATUS_ID, NAME) VALUES (nextval('public."statusms_seq"'), 'DECLINED');
+			]]>
+		</sql>
+	</changeSet>
+	
+		<changeSet author="itodericiu" id="20170822-005">
+		<sql>
+    	    <![CDATA[
+ 
+    	    	 INSERT INTO public.half_dayms (HALF_DAY_ID, TYPE) VALUES (nextval('public."half_dayms_seq"'), 'First half');
+				 INSERT INTO public.half_dayms (HALF_DAY_ID, TYPE) VALUES (nextval('public."half_dayms_seq"'), 'Second half');
+				 INSERT INTO public.half_dayms (HALF_DAY_ID, TYPE) VALUES (nextval('public."half_dayms_seq"'), 'Whole day');
+
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170810-002">
+		<sql>
+    	    <![CDATA[
+ 
+    	    	 INSERT INTO public.vacation_requestms (VACATION_REQUEST_ID, USER_ID, START_DATE, END_DATE, COMMENTS, PICTURE, STATUS_ID) VALUES (nextval('public."vacation_requestms_seq"'), 1, '2017-06-20', '2017-06-30', 'vacanta in Italia', 'smth', 1);
+    	    	 INSERT INTO public.vacation_requestms (VACATION_REQUEST_ID, USER_ID, START_DATE, END_DATE, COMMENTS, PICTURE, STATUS_ID) VALUES (nextval('public."vacation_requestms_seq"'), 3, '2017-07-11', '2017-07-17', 'Malta escape', 'smth2', 2);
+	    	     INSERT INTO public.vacation_requestms (VACATION_REQUEST_ID, USER_ID, START_DATE, END_DATE, COMMENTS, PICTURE, STATUS_ID) VALUES (nextval('public."vacation_requestms_seq"'), 5, '2017-08-17', '2017-06-23', 'USA with fam', 'smth3', 3);
+	    	     INSERT INTO public.vacation_requestms (VACATION_REQUEST_ID, USER_ID, START_DATE, END_DATE, COMMENTS, PICTURE, STATUS_ID) VALUES (nextval('public."vacation_requestms_seq"'), 4, '2017-09-02', '2017-09-08', 'exploring Japan', 'smth4', 1);
+	    	     INSERT INTO public.vacation_requestms (VACATION_REQUEST_ID, USER_ID, START_DATE, END_DATE, COMMENTS, PICTURE, STATUS_ID) VALUES (nextval('public."vacation_requestms_seq"'), 1, '2017-09-25', '2017-10-05', 'TEST', 'TEST', 1);
+	    	     INSERT INTO public.vacation_requestms (VACATION_REQUEST_ID, USER_ID, START_DATE, END_DATE, COMMENTS, PICTURE, STATUS_ID) VALUES (nextval('public."vacation_requestms_seq"'), 1, '2017-10-10', '2017-10-20', 'TEST', 'TEST', 1);
+	    	     INSERT INTO public.vacation_requestms (VACATION_REQUEST_ID, USER_ID, START_DATE, END_DATE, COMMENTS, PICTURE, STATUS_ID) VALUES (nextval('public."vacation_requestms_seq"'), 1, '2017-10-25', '2017-11-05', 'TEST', 'TEST', 1);
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170810-003">
+		<sql>
+    	    <![CDATA[
+ 
+    	    	 INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 2, '2017-06-20', '2017-06-20', 1, 1);
+    	    	 INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 6, '2017-07-11', '2017-07-17', 3, 2);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 1, '2017-08-17', '2017-06-23', 3, 3);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 4, '2017-09-02', '2017-09-02', 2, 1);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 1, '2017-04-25', '2017-05-05', 2, 1);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 1, '2017-05-10', '2017-05-20', 2, 1);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 1, '2017-05-25', '2017-06-05', 2, 1);
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170818-004">
+		<sql>
+    	    <![CDATA[
+ 
+    	    	 INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 2, '2017-06-29', '2017-06-29', 1, 1);
+    	    	 INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 6, '2017-02-07', '2017-02-13', 3, 2);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 1, '2017-08-18', '2017-06-18', 3, 3);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 2, '2017-09-02', '2017-09-07', 3, 1);
+			]]>
+		</sql>
+	</changeSet>
+	
+		<changeSet author="itodericiu" id="20170818-005">
+		<sql>
+    	    <![CDATA[
+ 
+    	    	 INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 2, '2017-06-29', '2017-06-29', 1, 2);
+    	    	 INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 6, '2017-03-08', '2017-03-08', 1, 2);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 6, '2017-04-18', '2017-04-18', 2, 2);
+	    	     INSERT INTO public.homeoffice_requestms (HOMEOFFICE_REQUEST_ID, USER_ID, START_DATE, END_DATE, HALF_DAY_ID, STATUS_ID) VALUES (nextval('public."homeoffice_requestms_seq"'), 6, '2017-09-07', '2017-09-07', 1, 2);
+			]]>
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

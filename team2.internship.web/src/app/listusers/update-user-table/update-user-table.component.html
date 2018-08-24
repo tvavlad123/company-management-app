@@ -1,0 +1,46 @@
+<ul class="tabelul" >
+    <div class="row col-md-12"  (click)="testMethod()">
+    <li class="col-md-2 colm">
+        <span *ngIf="isSelected()"><input type="text" id="up_firstName" class="nameInput" placeholder="{{user.firstName}}" [(ngModel)]="user.firstName"/></span >
+        <span *ngIf="!isSelected()">{{user.firstName}}</span >
+    </li>
+    <li class="col-md-2 colm">
+        <span *ngIf="isSelected()"><input  class="nameInput" type="text" id="up_lastName" placeholder="{{user.lastName}}" [(ngModel)]="user.lastName"/></span >
+        <span *ngIf="!isSelected()" (click)="testMethod()">{{user.lastName}}</span >
+
+        <!-- <span *ngIf="isSelected()"><input type="text" id="up_lastName" class="nameInput" placeholder="{{user.lastName}}" [(ngModel)]="user.lastName"/></span >
+        <span *ngIf="!isSelected()">{{user.lastName}}</span > -->
+    </li>
+    <li class="col-md-2 colm">
+        <select class="nameInput" *ngIf="isSelected()" id="up_authority" [(ngModel)]="user.authority">
+            <option value="{{user.authority}}" hidden>{{user.authority.authorityType}}</option>
+            <option *ngFor="let authority of authorities" [ngValue]="authority">{{authority.authorityType}}</option>
+          </select>
+        <span *ngIf="!isSelected()" (click)="testMethod()">{{user.authority.authorityType}}</span >
+    </li>
+    <li class="col-md-2 colm">
+        <select class="nameInput" *ngIf="isSelected()" id="up_position" [(ngModel)]="user.position">
+            <option value="{{user.position}}"  hidden>{{user.position.name}}</option>
+            <option *ngFor="let position of positions" [ngValue]="position">{{position.name}}</option>
+          </select>
+        <span *ngIf="!isSelected()" (click)="testMethod()">{{user.position.name}}</span >
+    </li>
+    <li class="col-md-2 colm">
+        <select class="nameInput" *ngIf="isSelected()" id="up_team" [(ngModel)]="user.team">
+            <option value="{{user.team}}"  hidden>{{user.team.name}}</option>
+            <option *ngFor="let team of teams" [ngValue]="team">{{team.name}}</option>
+          </select>
+        <span *ngIf="!isSelected()" (click)="testMethod()">{{user.team.name}}</span >
+    </li>
+    <li class="col-md-2 colm">
+        <select class="nameInput" *ngIf="isSelected()" id="up_department" [(ngModel)]="user.team.department">
+            <option value="{{user.team.department}}"  hidden>{{user.team.department.name}}</option>
+            <option *ngFor="let department of departments" [ngValue]="department">{{department.name}}</option>
+          </select>
+        <span *ngIf="!isSelected()" (click)="testMethod()">{{user.team.department.name}}</span >
+    </li>
+    </div>
+</ul>
+<div *ngIf=isSelected()>
+    <app-update-user (closeLine)="closeLine($event)" [(userToUpdate)]="user" [skills]="skills" [languages]="languages" [skillLevels]="skillLevels" [languageLevels]="languageLevels"></app-update-user>
+</div>

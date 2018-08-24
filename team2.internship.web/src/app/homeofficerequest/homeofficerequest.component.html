@@ -1,0 +1,67 @@
+<body>
+  <div class="table-responsive">
+    <div class="form-group">
+      <label type="text" for="startDate"> Start date:</label>
+      <input type="date" class="date" rows="1" id="startDate" [ngModel]="homeOfficeRequest.start_date | date:'yyyy-MM-dd'" [(ngModel)]="homeOfficeRequest.start_date"
+        (change)="startDateChanged()" />
+    </div>
+    <br>
+    <div class="form-group">
+      <label type="text" for="endDate">End date:</label>
+      <input type="date" class="date" rows="1" id="endDate" [ngModel]="homeOfficeRequest.end_date | date:'yyyy-MM-dd'" [(ngModel)]="homeOfficeRequest.end_date"
+        (change)="startDateChanged()" />
+    </div>
+    <br>
+
+    <div>
+      <div class="alert alert-success" role="alert" *ngIf="alert1">
+        <strong>Please set start date!</strong>
+      </div>
+
+      <div class="alert alert-success" role="alert" *ngIf="alert2">
+        <strong>Start date cannot be in the past!</strong>
+      </div>
+
+      <div class="alert alert-success" role="alert" *ngIf="alert3">
+        <strong>Invalid date! </strong>Start date must be before end date or should equal end date :)
+      </div>
+      <!--
+      <div class="alert alert-success" role="alert" *ngIf="alert4">
+        Half day can be taken only if <strong>startDate</strong> and <strong>endDate are the same!</strong>
+      </div>-->
+
+      <div class="alert alert-success" role="alert" *ngIf="alert5">
+        <strong>Home office request not sent! You do not have so many days left!</strong>
+      </div>
+
+      <div class="alert alert-success" role="alert" *ngIf="alert6">
+        Home office request succesfully sent! You still have <strong>{{result}}</strong> days left!
+      </div>
+    </div>
+
+    <br>
+    <div class="form-group">
+      <div *ngIf="checkDay()" class="btn-group" data-toggle="buttons">
+        <label type="text"> Request type:</label>
+        <br>
+        <!--<div class="btn btn-primary active">-->
+        <label><input class="btn btn-primary" type="button" name="options" id="option1" checked (click)="setHalfDay(3)" value="Whole Day" /></label>
+        <!--</div>-->
+        <!--<div class="btn btn-primary">-->
+        <label><input class="btn btn-primary" type="button" name="options" id="option2" (click)="setHalfDay(1)" value="First half"/></label>
+        <!--</div>-->
+        <!--<div class="btn btn-primary">-->
+        <label><input class="btn btn-primary" type="button" name="options" id="option3" (click)="setHalfDay(2)" value="Second half"/></label>
+        <!--</div>-->
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div>
+      <button class="btn btn-secondary btn-lg" type="button" (click)="createHomeOfficeRequest()" [disabled]="!showsaveRequest">Save</button>
+    </div>
+
+  </div>
+</body>

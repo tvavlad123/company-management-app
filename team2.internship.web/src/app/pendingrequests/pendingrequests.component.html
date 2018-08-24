@@ -1,0 +1,48 @@
+<div>
+  <p>
+    Home Office Requests:
+  </p>
+  <table>
+    <thead>
+      <th>User</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Half Day</th>
+      <th>Status</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let horequest of HOrequests">
+        <td>{{horequest.user_id}}</td>
+        <td>{{horequest.start_date}}</td>
+        <td>{{horequest.end_date}}</td>
+        <td>{{horequest.half_day.type}}</td>
+        <td>{{horequest.status_id.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <p>
+    Vacation Requests:
+  </p>
+  <table>
+    <thead>
+      <th>User</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Status</th>
+      <th>Comments</th>
+      <th>Picture</th>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let vrequest of Vrequests">
+        <td>{{vrequest.user_id}}</td>
+        <td>{{vrequest.start_date}}</td>
+        <td>{{vrequest.end_date}}</td>
+        <td>{{vrequest.comments}}</td>
+        <td>{{vrequest.picture}}</td>
+        <td>{{vrequest.status_id.name}}</td>
+    </tbody>
+  </table>
+</div>

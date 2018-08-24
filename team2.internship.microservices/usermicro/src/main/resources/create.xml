@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+
+	<changeSet author="itodericiu" id="20170727-001">
+		<sql>
+			<![CDATA[
+----------------------------------------------------------------------USERLANGUAGE TABLE-----------------------------------------	
+					CREATE TABLE "user_languagems"
+			(
+				"user_language_id" BIGINT NOT NULL,
+				"user_id" BIGINT NOT NULL,
+				"language_id" BIGINT NOT NULL,
+				"language_level_id" BIGINT NOT NULL
+			)
+			;
+
+			ALTER TABLE "user_languagems"
+			 ADD CONSTRAINT "user_languagems_id"
+				PRIMARY KEY ("user_language_id")
+			;
+
+			CREATE UNIQUE INDEX "xuser_languagems0"
+			    ON "user_languagems" ("user_language_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  	CREATE SEQUENCE user_languagems_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-002">
+		<sql>
+			<![CDATA[
+				
+----------------------------------------------------------------------USERSKILL TABLE-----------------------------------------	
+		CREATE TABLE "user_skillms"
+			(
+				"user_skill_id" BIGINT NOT NULL,
+				"user_id" BIGINT NOT NULL,
+				"skill_id" BIGINT NOT NULL,
+				"skill_level_id" BIGINT NOT NULL
+			)
+			;
+
+			ALTER TABLE "user_skillms"
+			 ADD CONSTRAINT "user_skillms_id"
+				PRIMARY KEY ("user_skill_id")
+			;
+
+			CREATE UNIQUE INDEX "xuser_skillms0"
+			    ON "user_skillms" ("user_skill_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  	CREATE SEQUENCE user_skillms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-003">
+		<sql>
+			<![CDATA[
+----------------------------------------------------------------------TEAMLEAD TABLE-----------------------------------------	
+
+		CREATE TABLE "team_leadms"
+			(
+				"team_lead_id" BIGINT NOT NULL,
+				"user_id" BIGINT NOT NULL,
+				"team_id" BIGINT NOT NULL
+			)
+			;
+
+			ALTER TABLE "team_leadms"
+			 ADD CONSTRAINT "team_leadms_id"
+				PRIMARY KEY ("team_lead_id")
+			;
+
+			CREATE UNIQUE INDEX "xteam_leadms0"
+			    ON "team_leadms" ("team_lead_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  	CREATE SEQUENCE team_leadms_seq
+				INCREMENT BY 1
+				START WITH 1    
+				MINVALUE 1      
+				MAXVALUE 9999999999999999 
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-004">
+		<sql>
+			<![CDATA[
+---------------------------------------------------------------------USER TABLE-----------------------------------------	
+	CREATE TABLE "userms"
+			(
+				"user_id" BIGINT NOT NULL,
+				"first_name" VARCHAR(500) NOT NULL,
+				"last_name" VARCHAR(500) NOT NULL,
+				"username" VARCHAR(500) NOT NULL,
+				"password" VARCHAR(500) NOT NULL,
+				"photo" text,
+				"authority_id" BIGINT NOT NULL,
+				"position_id" BIGINT,
+				"team_id" BIGINT,
+				"enabled" BOOLEAN,
+				"lastpasswordresetdate" TIMESTAMP
+			)
+			;
+
+			ALTER TABLE "userms"
+			ADD UNIQUE ("username");
+
+			ALTER TABLE "userms" 
+			 ADD CONSTRAINT "userms_id"
+				PRIMARY KEY ("user_id") 
+			;
+			
+			 CREATE UNIQUE INDEX "xuserms0"                                           
+			    ON "userms" ("user_id")                                                                                  
+			 TABLESPACE pg_default                                                          
+			  ;
+
+			--USERSKILL table
+			  ALTER TABLE "user_skillms"
+			 ADD CONSTRAINT "fk_userms_id"
+				FOREIGN KEY ("user_id") REFERENCES "userms" ("user_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xuser_skillms3"
+			    ON "user_skillms" ("user_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  --USERLANGUAGE table
+			  ALTER TABLE "user_languagems"
+			 ADD CONSTRAINT "fk_userms_id"
+				FOREIGN KEY ("user_id") REFERENCES "userms" ("user_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xuser_languages4"
+			    ON "user_languagems" ("user_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  --TEAMLEAD table
+			  ALTER TABLE "team_leadms"
+			 ADD CONSTRAINT "fk_userms_id"
+				FOREIGN KEY ("user_id") REFERENCES "userms" ("user_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xteam_leadms5"
+			    ON "team_leadms" ("user_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  	CREATE SEQUENCE userms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-005">
+		<sql>
+			<![CDATA[
+				--------------------------------------------------------------------AUTHORITY TABLE-----------------------------------------	
+						CREATE TABLE "authorityms"
+			(
+				"authority_id" BIGINT NOT NULL,
+				"name" VARCHAR(100) NOT NULL
+			)
+			;
+
+			ALTER TABLE "authorityms"
+			 ADD CONSTRAINT "authorityms_id"
+				PRIMARY KEY ("authority_id")
+			;
+
+			CREATE UNIQUE INDEX "xauthorityms0"
+			    ON "authorityms" ("authority_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  ALTER TABLE "userms"
+			 ADD CONSTRAINT "fk_authorityms_id"
+				FOREIGN KEY ("authority_id") REFERENCES "authorityms" ("authority_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xauthorityms1"
+			    ON "userms" ("authority_id")
+			 TABLESPACE pg_default
+			  ;
+
+			 CREATE SEQUENCE authorityms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+
+	<changeSet author="itodericiu" id="20170727-006">
+		<sql>
+			<![CDATA[
+		----------------------------------------------------------------------TEAM TABLE-----------------------------------------	
+				CREATE TABLE "teamms"
+			(
+				"team_id" BIGINT NOT NULL,
+				"name" VARCHAR(100) NOT NULL,
+				"department_id" BIGINT NOT NULL
+			)
+			;
+
+			ALTER TABLE "teamms"
+			 ADD CONSTRAINT "teamms_id"
+				PRIMARY KEY ("team_id")
+			;
+
+			CREATE UNIQUE INDEX "xteamms0"
+			    ON "teamms" ("team_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  ALTER TABLE "userms"
+			 ADD CONSTRAINT "fk_teamms_id"
+				FOREIGN KEY ("team_id") REFERENCES "teamms" ("team_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xuserms2"
+			    ON "userms" ("team_id")
+			 TABLESPACE pg_default
+			  ;
+
+
+			  --TEAMLEAD table
+			 ALTER TABLE "team_leadms"
+			 ADD CONSTRAINT "fk_teamms_id"
+				FOREIGN KEY ("team_id") REFERENCES "teamms" ("team_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xteam_leadms1"
+			    ON "team_leadms" ("team_id")
+			 TABLESPACE pg_default
+			  ;
+
+			 CREATE SEQUENCE teamms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-007">
+		<sql>
+			<![CDATA[
+----------------------------------------------------------------------DEPARTMENT TABLE-----------------------------------------					
+			CREATE TABLE "departmentms"
+			(
+				"department_id" BIGINT NOT NULL,
+				"name" VARCHAR(100) NOT NULL
+			)
+			;
+
+			ALTER TABLE "departmentms"
+			 ADD CONSTRAINT "departmentms_id"
+				PRIMARY KEY ("department_id")
+			;
+
+			CREATE UNIQUE INDEX "xdepartmentms0"
+			    ON "departmentms" ("department_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  ALTER TABLE "teamms"
+			 ADD CONSTRAINT "fk_teamms_id"
+				FOREIGN KEY ("department_id") REFERENCES "departmentms" ("department_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xteamms1"
+			    ON "teamms" ("department_id")
+			 TABLESPACE pg_default
+			  ;
+
+			 CREATE SEQUENCE departmentms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-008">
+		<sql>
+			<![CDATA[
+	----------------------------------------------------------------------LANGUAGE TABLE-----------------------------------------	
+						CREATE TABLE "languagems"
+			(
+				"language_id" BIGINT NOT NULL,
+				"name" VARCHAR(100) NOT NULL
+			)
+			;
+
+			ALTER TABLE "languagems"
+			 ADD CONSTRAINT "languagems_id"
+				PRIMARY KEY ("language_id")
+			;
+
+			CREATE UNIQUE INDEX "xlanguagems0"
+			    ON "languagems" ("language_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  --USERLANGUAGE table
+			  ALTER TABLE "user_languagems"
+			 ADD CONSTRAINT "fk_languagems_id"
+				FOREIGN KEY ("language_id") REFERENCES "languagems" ("language_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xuser_languagems2"
+			    ON "user_languagems" ("language_id")
+			 TABLESPACE pg_default
+			  ;
+
+			 CREATE SEQUENCE languagems_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-009">
+		<sql>
+			<![CDATA[
+----------------------------------------------------------------------POSITION TABLE-----------------------------------------	
+					CREATE TABLE "positionms"
+			(
+				"position_id" BIGINT NOT NULL,
+				"name" VARCHAR(100) NOT NULL
+			)
+			;
+
+			ALTER TABLE "positionms"
+			 ADD CONSTRAINT "positionms_id"
+				PRIMARY KEY ("position_id")
+			;
+
+			CREATE UNIQUE INDEX "xpositionms0"
+			    ON "positionms" ("position_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  ALTER TABLE "userms"
+			 ADD CONSTRAINT "fk_positionms_id"
+				FOREIGN KEY ("position_id") REFERENCES "positionms" ("position_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xuserms3"
+			    ON "userms" ("position_id")
+			 TABLESPACE pg_default
+			  ;
+
+			 CREATE SEQUENCE positionms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				CACHE 1
+				;
+
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170727-010">
+		<sql>
+			<![CDATA[
+	----------------------------------------------------------------------SKILL TABLE-----------------------------------------	
+						CREATE TABLE "skillms"
+			(
+				"skill_id" BIGINT NOT NULL,
+				"name" VARCHAR(100) NOT NULL
+			)
+			;
+
+			ALTER TABLE "skillms"
+			 ADD CONSTRAINT "skillms_id"
+				PRIMARY KEY ("skill_id")
+			;
+
+			CREATE UNIQUE INDEX "xskillms0"
+			    ON "skillms" ("skill_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  --USERSKILL table fk
+			  ALTER TABLE "user_skillms"
+			 ADD CONSTRAINT "fk_skillms_id"
+				FOREIGN KEY ("skill_id") REFERENCES "skillms" ("skill_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xuser_skillms1"
+			    ON "user_skillms" ("skill_id")
+			 TABLESPACE pg_default
+			  ;
+
+			 CREATE SEQUENCE skillms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="itodericiu" id="20170808-011">
+		<sql>
+			<![CDATA[
+	----------------------------------------------------------------------LANGUAGE LEVEL TABLE-----------------------------------------	
+						CREATE TABLE "language_levelms"
+			(
+				"language_level_id" BIGINT NOT NULL,
+				"name" VARCHAR(100) NOT NULL
+			)
+			;
+
+			ALTER TABLE "language_levelms"
+			 ADD CONSTRAINT "language_levelms_id"
+				PRIMARY KEY ("language_level_id")
+			;
+
+			CREATE UNIQUE INDEX "xlanguage_levelms0"
+			    ON "language_levelms" ("language_level_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  --USERSKILL table fk
+			  ALTER TABLE "user_languagems"
+			 ADD CONSTRAINT "fk_language_levelms_id"
+				FOREIGN KEY ("language_level_id") REFERENCES "language_levelms" ("language_level_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xuser_languagems4"
+			    ON "user_languagems" ("language_level_id")
+			 TABLESPACE pg_default
+			  ;
+
+			 CREATE SEQUENCE language_levelms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="itodericiu" id="20170808-012">
+		<sql>
+			<![CDATA[
+	----------------------------------------------------------------------SKILL LEVEL TABLE-----------------------------------------	
+						CREATE TABLE "skill_levelms"
+			(
+				"skill_level_id" BIGINT NOT NULL,
+				"name" VARCHAR(100) NOT NULL
+			)
+			;
+
+			ALTER TABLE "skill_levelms"
+			 ADD CONSTRAINT "skill_levelms_id"
+				PRIMARY KEY ("skill_level_id")
+			;
+
+			CREATE UNIQUE INDEX "xskill_levelms0"
+			    ON "skill_levelms" ("skill_level_id")
+			 TABLESPACE pg_default
+			  ;
+
+			  --USERSKILL table fk
+			  ALTER TABLE "user_skillms"
+			 ADD CONSTRAINT "fk_skill_levelms_id"
+				FOREIGN KEY ("skill_level_id") REFERENCES "skill_levelms" ("skill_level_id")
+			;
+
+			-- Create Indexes for FK
+			CREATE INDEX "xuser_skillms2"
+			    ON "user_skillms" ("skill_level_id")
+			 TABLESPACE pg_default
+			  ;
+
+			 CREATE SEQUENCE skill_levelms_seq
+				INCREMENT BY 1
+				START WITH 1
+				MINVALUE 1
+				MAXVALUE 9999999999999999
+				CACHE 1
+				;
+         ]]>
+		</sql>
+	</changeSet>
+</databaseChangeLog>
